@@ -1,0 +1,23 @@
+const { Schema, model } = require('mongoose');
+
+const assignmentSchema = new Schema({
+  task: { type: Schema.Types.ObjectId, ref: 'Tasks', required: true },
+  sectionStart: {
+    type: Schema.Types.ObjectId,
+    ref: 'Sections',
+    required: true,
+  },
+  sectionEnd: { type: Schema.Types.ObjectId, ref: 'Sections', required: true },
+  agv: { type: Schema.Types.ObjectId, ref: 'Agvs', required: true },
+  route: { type: Schema.Types.ObjectId, ref: 'Tasks', required: true },
+  CreatedAt: { type: Date, required: true, default: Date.now() },
+  status: {
+    type: String,
+    required: true,
+    default: 'transport',
+    enum: ['transport', 'complete'],
+  },
+});
+
+const Assignment = model('Assignments', assignmentSchema);
+module.exports = Assignment;
