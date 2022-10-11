@@ -13,7 +13,7 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ['viewr', 'editor'],
+    enum: ['viewer', 'editor'],
     default: 'editor',
   },
   password: {
@@ -26,7 +26,6 @@ const userSchema = new Schema({
 // Virtual populate
 userSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, 12);
-  this.passwordConfirm = undefined;
   next();
 });
 
