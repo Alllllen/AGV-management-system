@@ -2,6 +2,7 @@ const path = require('path');
 
 const authRoute = require('./routes/authRoute');
 const viewRoute = require('./routes/viewRoute');
+// const taskRoute = require('./routes/taskRoute');
 
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 app.use('/', viewRoute);
 app.use('/api/v1/user', authRoute);
+// app.use('/api/v1/task', taskRoute);
 app.use(globalErrorHandler);
 
 module.exports = app;

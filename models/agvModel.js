@@ -10,8 +10,9 @@ const agvSchema = new Schema({
   },
   battery: { type: Number, required: true },
   capacity: { type: Number, required: true, default: 0 },
-  locationX: { type: Number, required: true },
-  locationY: { type: Number, required: true },
+  x: { type: Number, required: true },
+  y: { type: Number, required: true },
+  z: { type: Number, required: true },
 });
 
 const Agv = model('Agvs', agvSchema);

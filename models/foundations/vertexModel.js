@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const VertexSchema = new Schema({
-  locationX: { type: 'number', required: true },
-  locationY: { type: 'number', required: true },
-  locationZ: { type: 'number', required: true },
+  x: { type: 'number', required: true },
+  y: { type: 'number', required: true },
+  z: { type: 'number', required: true },
 });
 
 const Vertex = model('Vertexs', VertexSchema);

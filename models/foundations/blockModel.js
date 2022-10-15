@@ -10,10 +10,9 @@ const blockSchema = new Schema({
   },
   startX: { type: Number, required: true },
   startY: { type: Number, required: true },
-  startZ: { type: Number, required: true },
   endX: { type: Number, required: true },
   endY: { type: Number, required: true },
-  endZ: { type: Number, required: true },
+  z: { type: Number, required: true },
   sections: [{ type: Schema.Types.ObjectId, ref: 'sections', required: true }],
 });
 

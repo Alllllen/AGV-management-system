@@ -4,7 +4,8 @@
   "description": "",
   "main": "sever.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "pre": "node preloadFoundations.js"
   },
   "author": "",
   "license": "ISC",

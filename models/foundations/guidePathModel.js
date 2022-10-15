@@ -6,14 +6,18 @@ const guidePathSchema = new Schema({
     ref: 'Vertexs',
     required: true,
   },
+  vertexX: { type: Number, required: true },
+  vertexY: { type: Number, required: true },
+  vertexZ: { type: Number, required: true },
   adjacents: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Vertexs',
-      required: true,
+      adjacentId: { type: Schema.Types.ObjectId, ref: 'Vertexs' },
+      adjacentX: Number,
+      adjacentY: Number,
+      adjacentZ: Number,
     },
   ],
 });
 
-const GuideEdge = model('GuidePath', guidePathSchema);
+const GuidePath = model('GuidePath', guidePathSchema);
 module.exports = GuidePath;
