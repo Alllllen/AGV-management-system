@@ -24,8 +24,11 @@ const getFoundation = (...key) => {
     if (!cellValue) continue;
 
     cellValue = cellValue.split('<span')[0];
+    // let isKey2 = true;
+    // console.log(key.length);
+    // if (key.length === 3) if (!cellValue.includes(key[2])) isKey2 = false;
     if (
-      !cellValue.includes('e') &&
+      // !cellValue.includes('e') &&
       cellValue.includes(key[0]) &&
       !cellValue.includes(key[1])
     ) {
@@ -78,7 +81,7 @@ const getEntry = (key, foundations) => {
   return foundationEntrys;
 };
 exports.saveWall = catchAsync(async () => {
-  let foundations = getFoundation('w'); //{}
+  let foundations = getFoundation('w', 'e'); //{}
 
   //save data
   for (let i in foundations) {
@@ -95,7 +98,7 @@ exports.saveWall = catchAsync(async () => {
 });
 exports.saveElevator = catchAsync(async () => {
   //lift也等於elevator為了不跟entry的e搞混
-  let foundations = getFoundation('l'); //{}
+  let foundations = getFoundation('l', 'e'); //{}
   let foundationEntrys = getEntry('l', foundations); //{}
 
   //save data
@@ -116,7 +119,7 @@ exports.saveElevator = catchAsync(async () => {
   console.log('save elevator');
 });
 exports.saveCharge = catchAsync(async () => {
-  let foundations = getFoundation('c'); //{}
+  let foundations = getFoundation('c', 'e'); //{}
   let foundationEntrys = getEntry('c', foundations); //{}
 
   //save data
@@ -136,7 +139,7 @@ exports.saveCharge = catchAsync(async () => {
   console.log('save charge');
 });
 exports.savePark = catchAsync(async () => {
-  let foundations = getFoundation('p'); //{}
+  let foundations = getFoundation('p', 'e'); //{}
   let foundationEntrys = getEntry('p', foundations); //{}
 
   //save data
@@ -158,7 +161,7 @@ exports.savePark = catchAsync(async () => {
 exports.saveSection = () => {
   return new Promise(
     catchAsync(async (resolve, reject) => {
-      let foundations = getFoundation('s'); //{}
+      let foundations = getFoundation('s', 'e'); //{}
       let foundationEntrys = getEntry('s', foundations); //{}
 
       //save data
@@ -205,14 +208,24 @@ exports.saveBlock = catchAsync(async () => {
 exports.saveVertex = () => {
   return new Promise(
     catchAsync(async (resolve, reject) => {
-      let foundations = getFoundation('v'); //{}
+      let foundations1 = getFoundation('v'); //{}
+      let foundations2 = getFoundation('e'); //{}
 
       //save data
-      for (let i in foundations) {
+      //save original vertex
+      for (let i in foundations1) {
         await Vertex.create({
-          x: foundations[i].startX,
-          y: foundations[i].startY,
-          z: foundations[i].z,
+          x: foundations1[i].startX,
+          y: foundations1[i].startY,
+          z: foundations1[i].z,
+        });
+      }
+      //save entry point as vertex
+      for (let i in foundations2) {
+        await Vertex.create({
+          x: foundations2[i].startX,
+          y: foundations2[i].startY,
+          z: foundations2[i].z,
         });
       }
 
@@ -223,12 +236,19 @@ exports.saveVertex = () => {
 };
 exports.saveGuidePath = catchAsync(async () => {
   let vertexs = [];
+  let entryVertexs = [];
   let edges = [];
 
-  //get vertex
+  //get oiginal vertex
   let vs = getFoundation('v'); //{}
   for (let i in vs) {
     vertexs.push(vs[i]);
+  }
+  //get every entry point as verte
+  let vs2 = getFoundation('e'); //{}
+  for (let i in vs2) {
+    entryVertexs.push(vs2[i]);
+    vertexs.push(vs2[i]);
   }
 
   // get edges
@@ -335,6 +355,22 @@ exports.saveGuidePath = catchAsync(async () => {
             pair = [];
           }
         }
+      }
+    }
+  }
+  //找出entry point出去到其他點的線
+  for (let i = 0; i < entryVertexs.length; i++) {
+    for (let j = 0; j < pairs.length; j++) {
+      if (
+        entryVertexs[i].startX === pairs[j][1]['x'] &&
+        entryVertexs[i].startY === pairs[j][1]['y']
+      ) {
+        pair.push(
+          { x: entryVertexs[i].startX, y: entryVertexs[i].startY },
+          { x: pairs[j][0]['x'], y: pairs[j][0]['y'] }
+        );
+        pairs.push(pair);
+        pair = [];
       }
     }
   }
