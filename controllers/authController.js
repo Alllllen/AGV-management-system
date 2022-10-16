@@ -116,6 +116,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   req.user = currentUser;
   res.locals.user = currentUser;
+  req.body.user = currentUser; //給post task 用 之後其他應該也會用到
   next();
 });
 

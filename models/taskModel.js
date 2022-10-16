@@ -12,10 +12,33 @@ const taskSchema = new Schema({
   status: {
     type: String,
     required: true,
-    default: 'waitForExectue',
-    enum: ['waitForExectue', 'execute', 'waitAtBuffer', 'complete'],
+    default: 'waitForExecute',
+    enum: ['waitForExecute', 'execute', 'waitAtBuffer', 'complete'],
   },
 });
+
+taskSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'sectionStart',
+    select: 'name entryX entryY',
+  });
+
+  this.populate({
+    path: 'sectionEnd',
+    select: 'name entryX entryY',
+  });
+
+  this.populate({
+    path: 'user',
+    select: 'email',
+  });
+  next();
+});
+
+// postSchema.pre(/findOne/, function (next) {
+//   this.populate({
+//     path: 'comments',
+//   });
 
 const Task = model('Tasks', taskSchema);
 

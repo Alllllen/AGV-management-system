@@ -2,6 +2,17 @@ const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const APIFeatures = require('./../utils/apiFeatures');
 // const { setex, get } = require('.././utils/redis');
+const getOrSetCache = (key, cb) => {
+  return new Promise(
+    catchAsync(async (resolve, reject) => {
+      const data = await get(key);
+      if (data != null) return resolve(JSON.parse(data));
+      const newData = await cb;
+      setex(key, process.env.REDIS_EXPIRATION, JSON.stringify(newData));
+      resolve(newData);
+    })
+  );
+};
 
 exports.deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
@@ -56,7 +67,7 @@ exports.getOne = (Model, popOptions) =>
     //redis search
     // const doc = await getOrSetCache(`${req.originalUrl}`, query);
     const doc = await query;
-
+    console.log(doc);
     if (!doc) {
       return next(new AppError('No document found with that ID', 404));
     }
@@ -96,15 +107,3 @@ exports.getAll = (Model, popOptions) =>
       },
     });
   });
-
-const getOrSetCache = (key, cb) => {
-  return new Promise(
-    catchAsync(async (resolve, reject) => {
-      const data = await get(key);
-      if (data != null) return resolve(JSON.parse(data));
-      const newData = await cb;
-      setex(key, process.env.REDIS_EXPIRATION, JSON.stringify(newData));
-      resolve(newData);
-    })
-  );
-};

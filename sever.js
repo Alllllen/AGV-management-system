@@ -19,7 +19,3 @@ mongoose
 const server = app.listen(process.env.PORT || 8080, () => {
   console.log(`Server running on port ${server.address().port}`);
 });
-
-//writedoundationDB
-const foundationController = require('./controllers/foundationController');
-foundationController.writeDB();

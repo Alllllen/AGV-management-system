@@ -2,7 +2,8 @@ const path = require('path');
 
 const authRoute = require('./routes/authRoute');
 const viewRoute = require('./routes/viewRoute');
-// const taskRoute = require('./routes/taskRoute');
+const taskRoute = require('./routes/taskRoute');
+const agvRoute = require('./routes/agvRoute');
 
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -12,6 +13,8 @@ const app = express();
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swaggerOutput.json');
+require('./models/foundations/sectionModel');
+require('./models/userModel');
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // app.enable('trust proxy');
@@ -24,7 +27,8 @@ app.use(cookieParser());
 
 app.use('/', viewRoute);
 app.use('/api/v1/user', authRoute);
-// app.use('/api/v1/task', taskRoute);
+app.use('/api/v1/task', taskRoute);
+app.use('/api/v1/agv', agvRoute);
 app.use(globalErrorHandler);
 
 module.exports = app;
