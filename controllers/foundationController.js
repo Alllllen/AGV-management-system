@@ -273,6 +273,8 @@ exports.saveGuidePath = catchAsync(async () => {
   // 把所有點跟點有連線的連起來
   let pair = [];
   let pairs = [];
+  let weight = 0;
+
   for (let i = 0; i < edges.length; i++) {
     let sourceX = edges[i]['sourceX'];
     let sourceY = edges[i]['sourceY'];
@@ -287,6 +289,7 @@ exports.saveGuidePath = catchAsync(async () => {
 
       if (sourceY < targetY) {
         for (let j = sourceY + 1; j <= targetY; j++) {
+          weight++;
           currentV = { x: sourceX, y: j };
           if (
             vertexs.some(
@@ -294,9 +297,10 @@ exports.saveGuidePath = catchAsync(async () => {
                 vertex.startX === currentV.x && vertex.startY === currentV.y
             )
           ) {
-            pair.push(lastV, currentV);
+            pair.push(lastV, currentV, weight);
             lastV = currentV;
             pairs.push(pair);
+            weight = 0;
             pair = [];
           }
         }
@@ -305,6 +309,7 @@ exports.saveGuidePath = catchAsync(async () => {
         lastV = { x: sourceX, y: targetY };
 
         for (let j = targetY + 1; j <= sourceY; j++) {
+          weight++;
           currentV = { x: sourceX, y: j };
           if (
             vertexs.some(
@@ -312,9 +317,10 @@ exports.saveGuidePath = catchAsync(async () => {
                 vertex.startX === currentV.x && vertex.startY === currentV.y
             )
           ) {
-            pair.push(currentV, lastV);
+            pair.push(currentV, lastV, weight);
             lastV = currentV;
             pairs.push(pair);
+            weight = 0;
             pair = [];
           }
         }
@@ -324,6 +330,7 @@ exports.saveGuidePath = catchAsync(async () => {
       lastV = { x: sourceX, y: sourceY };
       if (sourceX < targetX) {
         for (let j = sourceX + 1; j <= targetX; j++) {
+          weight++;
           currentV = { x: j, y: sourceY };
           if (
             vertexs.some(
@@ -331,9 +338,10 @@ exports.saveGuidePath = catchAsync(async () => {
                 vertex.startX === currentV.x && vertex.startY === currentV.y
             )
           ) {
-            pair.push(lastV, currentV);
+            pair.push(lastV, currentV, weight);
             lastV = currentV;
             pairs.push(pair);
+            weight = 0;
             pair = [];
           }
         }
@@ -342,6 +350,7 @@ exports.saveGuidePath = catchAsync(async () => {
       if (sourceX > targetX) {
         lastV = { x: targetX, y: sourceY };
         for (let j = targetX + 1; j <= sourceX; j++) {
+          weight++;
           currentV = { x: j, y: sourceY };
           if (
             vertexs.some(
@@ -349,9 +358,10 @@ exports.saveGuidePath = catchAsync(async () => {
                 vertex.startX === currentV.x && vertex.startY === currentV.y
             )
           ) {
-            pair.push(currentV, lastV);
+            pair.push(currentV, lastV, weight);
             lastV = currentV;
             pairs.push(pair);
+            weight = 0;
             pair = [];
           }
         }
@@ -367,7 +377,8 @@ exports.saveGuidePath = catchAsync(async () => {
       ) {
         pair.push(
           { x: entryVertexs[i].startX, y: entryVertexs[i].startY },
-          { x: pairs[j][0]['x'], y: pairs[j][0]['y'] }
+          { x: pairs[j][0]['x'], y: pairs[j][0]['y'] },
+          pairs[j][2]
         );
         pairs.push(pair);
         pair = [];
@@ -393,6 +404,7 @@ exports.saveGuidePath = catchAsync(async () => {
           adjacentX: adjacent[0]['x'],
           adjacentY: adjacent[0]['y'],
           adjacentZ: adjacent[0]['z'],
+          weight: pairs[i][2],
         });
       }
     }

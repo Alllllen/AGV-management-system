@@ -15,6 +15,7 @@ const guidePathSchema = new Schema({
       adjacentX: Number,
       adjacentY: Number,
       adjacentZ: Number,
+      weight: Number,
     },
   ],
 });
