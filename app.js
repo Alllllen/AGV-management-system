@@ -4,6 +4,7 @@ const authRoute = require('./routes/authRoute');
 const viewRoute = require('./routes/viewRoute');
 const taskRoute = require('./routes/taskRoute');
 const agvRoute = require('./routes/agvRoute');
+const assignmentRoute = require('./routes/assignmentRoute');
 
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -29,6 +30,7 @@ app.use('/', viewRoute);
 app.use('/api/v1/user', authRoute);
 app.use('/api/v1/task', taskRoute);
 app.use('/api/v1/agv', agvRoute);
+app.use('/api/v1/assignment', assignmentRoute);
 app.use(globalErrorHandler);
 
 module.exports = app;

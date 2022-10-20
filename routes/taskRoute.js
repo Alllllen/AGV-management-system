@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const assignmentRoute = require('./assignmentRoute');
 const taskController = require('./../controllers/taskController');
 const authController = require('./../controllers/authController');
+
+router.use('/:taskId/assignment', assignmentRoute);
 
 router
   .route('/')

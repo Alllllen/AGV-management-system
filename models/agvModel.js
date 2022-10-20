@@ -8,7 +8,7 @@ const agvSchema = new Schema({
     enum: ['charge', 'transport', 'park', 'backPark', 'backCharge'],
     default: 'park',
   },
-  battery: { type: Number, required: true },
+  battery: { type: Number, required: true, default: 100 },
   capacity: { type: Number, required: true, default: 0 },
   x: { type: Number, required: true },
   y: { type: Number, required: true },

@@ -9,7 +9,7 @@ const assignmentSchema = new Schema({
   },
   sectionEnd: { type: Schema.Types.ObjectId, ref: 'Sections', required: true },
   agv: { type: Schema.Types.ObjectId, ref: 'Agvs', required: true },
-  route: { type: Schema.Types.ObjectId, ref: 'Tasks', required: true },
+  route: [{ type: String }],
   CreatedAt: { type: Date, required: true, default: Date.now() },
   status: {
     type: String,
