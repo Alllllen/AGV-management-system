@@ -1,18 +1,141 @@
-<!DOCTYPE html>
-<html>
+extends base
 
-<head>
-  <title>My Site</title>
-  <script src="/javascripts/jquery.js"></script>
-  <script src="/javascripts/app.js"></script>
-</head>
-
-<body>
-  <h1>My Site</h1>
-  <p>Welcome to my super lame site.</p>
-  <footer id="footer">
-    <p>Copyright (c) foobar</p>
-  </footer>
-</body>
-
-</html>
+block content
+ // Content Start
+ .content-start.transition
+  .container-fluid.dashboard
+    .content-header
+      h1 Dashboard
+      p
+    .row
+      .col-md-6.col-lg-3
+        .card
+          .card-body
+            .row
+              .col-4.d-flex.align-items-center
+                i.fas.fa-inbox.icon-home.bg-primary.text-light
+              .col-8
+                p Revenue
+                h5 $65
+      .col-md-6.col-lg-3
+        .card
+          .card-body
+            .row
+              .col-4.d-flex.align-items-center
+                i.fas.fa-clipboard-list.icon-home.bg-success.text-light
+              .col-8
+                p Orders
+                h5 3000
+      .col-md-6.col-lg-3
+        .card
+          .card-body
+            .row
+              .col-4.d-flex.align-items-center
+                i.fas.fa-chart-bar.icon-home.bg-info.text-light
+              .col-8
+                p Sales
+                h5 5500
+      .col-md-6.col-lg-3
+        .card
+          .card-body
+            .row
+              .col-4.d-flex.align-items-center
+                i.fas.fa-id-card.icon-home.bg-warning.text-light
+              .col-8
+                p Employes
+                h5 256
+      .col-md-6
+        .card
+          .card-header
+          .card-body
+            #columnchart
+      .col-md-6
+        .card
+          .card-header
+            h4 Recent Messages
+          .card-body.pb-4
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/4.jpg')
+              .name.ms-4
+                h5.mb-1 Hank Schrader
+                h6.text-muted.mb-0 @johnducky
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/5.jpg')
+              .name.ms-4
+                h5.mb-1 Dean Winchester
+                h6.text-muted.mb-0 @imdean
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/1.jpg')
+              .name.ms-4
+                h5.mb-1 John Doe
+                h6.text-muted.mb-0 @Doejohn
+            .px-4
+              button.btn.btn-block.btn-xl.btn-primary.font-bold.mt-3
+                | Start
+                | Conversation
+      .col-md-12
+        .card
+          .card-header
+            h4 AGV Live
+          .card-body-map
+            #game-board
+      .col-md-12
+        .card
+          .card-header
+            h4 Latest Transaction
+          .card-body
+            .table-responsive
+              table.table.table-striped
+                thead
+                  tr
+                    th(scope='col') Order Id
+                    th(scope='col') Billing Name
+                    th(scope='col') Date
+                    th(scope='col') Total
+                    th(scope='col') Payment Status
+                    th(scope='col') Payment Method
+                    th(scope='col') View Details
+                tbody
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-success Paid
+                    td Mastercard
+                    td
+                      button.btn.btn-primary View Details
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-success Paid
+                    td Visa
+                    td
+                      button.btn.btn-primary View Details
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-danger Chargeback
+                    td Paypal
+                    td
+                      button.btn.btn-primary View Details
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-warning Refund
+                    td Visa
+                    td
+                      button.btn.btn-primary View Details

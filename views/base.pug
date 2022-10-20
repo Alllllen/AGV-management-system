@@ -1,0 +1,51 @@
+doctype html
+head
+    block head
+        // Required meta tags
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        title Dashboard - Atrana
+        // Bootstrap CSS
+        link(rel='stylesheet' href='/assets/modules/bootstrap-5.1.3/css/bootstrap.css')
+        // Style CSS
+        link(rel='stylesheet' href='/assets/css/style.css')
+        // FontAwesome CSS
+        link(rel='stylesheet' href='/assets/modules/fontawesome6.1.1/css/all.css')
+        // Boxicons CSS
+        link(rel='stylesheet' href='/assets/modules/boxicons/css/boxicons.min.css')
+        // Apexcharts  CSS
+        link(rel='stylesheet' href='/assets/modules/apexcharts/apexcharts.css')
+
+body
+    //- HEADER
+    include _header
+
+    //- SIDEBAR
+    include _sidebar
+
+    //- CONTENT
+    block content
+
+    //- FOOTER
+    include _footer
+
+// Preloader
+.loader
+  .spinner-border.text-light(role='status')
+    span.sr-only Loading...
+// Loader
+.loader-overlay
+// General JS Scripts
+script(type="module" src='/assets/js/game/game.js')
+// General JS Scripts
+script(src='/assets/js/atrana.js')
+// JS Libraies
+script(src='/assets/modules/jquery/jquery.min.js')
+script(src='/assets/modules/bootstrap-5.1.3/js/bootstrap.bundle.min.js')
+script(src='/assets/modules/popper/popper.min.js')
+// Chart Js
+script(src='/assets/modules/apexcharts/apexcharts.js')
+script(src='/assets/js/ui-apexcharts.js')
+// Template JS File
+script(src='/assets/js/script.js')
+script(src='/assets/js/custom.js')

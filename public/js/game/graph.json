@@ -1,0 +1,2299 @@
+{
+  "mxGraphModel": {
+   "_attributes": {
+    "dx": "1663",
+    "dy": "924",
+    "grid": "1",
+    "gridSize": "10",
+    "guides": "1",
+    "tooltips": "1",
+    "connect": "1",
+    "arrows": "0",
+    "fold": "1",
+    "page": "1",
+    "pageScale": "1",
+    "pageWidth": "827",
+    "pageHeight": "1169",
+    "background": "#ffffff",
+    "math": "0",
+    "shadow": "0"
+   },
+   "root": {
+    "mxCell": [
+     {
+      "_attributes": {
+       "id": "0"
+      }
+     },
+     {
+      "_attributes": {
+       "id": "1",
+       "parent": "0"
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-2",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "200",
+        "y": "280",
+        "width": "320",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-4",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "600",
+        "y": "280",
+        "width": "320",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-5",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "200",
+        "y": "520",
+        "width": "320",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-9",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "200",
+        "y": "760",
+        "width": "320",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-10",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "600",
+        "y": "760",
+        "width": "320",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-13",
+       "value": "電梯",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "40",
+        "y": "360",
+        "width": "80",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-14",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "140",
+          "y": "420",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "980",
+          "y": "420",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-15",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "980",
+          "y": "460",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "140",
+          "y": "460",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-16",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "580",
+          "y": "180",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "580",
+          "y": "940",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-17",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "540",
+          "y": "940",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "540",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-22",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "140",
+          "y": "660",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "980",
+          "y": "660",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-23",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "900",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "900",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-24",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "980",
+          "y": "700",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "140",
+          "y": "700",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-25",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "940",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "940",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-27",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "980",
+          "y": "180",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "980",
+          "y": "940",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-29",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "940",
+          "y": "940",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "940",
+          "y": "180",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-33",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "180",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "980",
+          "y": "180",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-35",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1440",
+        "y": "560",
+        "width": "240",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-37",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1120",
+        "y": "800",
+        "width": "240",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-39",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1440",
+        "y": "800",
+        "width": "240",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-50",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1101",
+          "y": "460",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1101",
+          "y": "940",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-51",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1061",
+          "y": "940",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1060",
+          "y": "460",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-54",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1420",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1419.9999999999995",
+          "y": "940",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-55",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1379.9999999999995",
+          "y": "940",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1380",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-56",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "460",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1739.9999999999995",
+          "y": "940",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-57",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1699.9999999999995",
+          "y": "940",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1700",
+          "y": "460",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-58",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1061",
+          "y": "700",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "700",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-59",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "740",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1061",
+          "y": "740",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-60",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1060",
+          "y": "460",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "460",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-61",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "500",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1061",
+          "y": "500",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-66",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "940",
+          "y": "299.58",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "300",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-67",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "340",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "940",
+          "y": "339.58000000000004",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-68",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "340",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-69",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1700",
+          "y": "340",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1700",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-138",
+       "value": "Text",
+       "style": "edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];",
+       "parent": "F_HJu9IDEADny9IZh7aw-69",
+       "vertex": "1",
+       "connectable": "0"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "-0.4338",
+        "y": "7",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": {
+        "_attributes": {
+         "y": "1",
+         "as": "offset"
+        }
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-70",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1060",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-71",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1740",
+          "y": "100",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1061",
+          "y": "100",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-74",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1101",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1101",
+          "y": "340",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-75",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "1061",
+          "y": "340",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "1061",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-93",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "400",
+        "y": "40",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-94",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "400",
+        "y": "80",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-95",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "440",
+        "y": "40",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-96",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "440",
+        "y": "80",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-106",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "160",
+        "y": "40",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-107",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "160",
+        "y": "80",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-108",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "200",
+        "y": "40",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-109",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "200",
+        "y": "80",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-120",
+       "value": "停車場",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillColor=#fad9d5;gradientDirection=east;strokeColor=#ae4132;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "600",
+        "y": "40",
+        "width": "400",
+        "height": "120",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-121",
+       "value": "停車場",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillColor=#fad9d5;gradientDirection=east;strokeColor=#ae4132;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "40",
+        "y": "440",
+        "width": "80",
+        "height": "280",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-126",
+       "value": "電梯",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "40",
+        "y": "280",
+        "width": "80",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-139",
+       "value": "停車場",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillColor=#fad9d5;gradientDirection=east;strokeColor=#ae4132;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1480",
+        "y": "360",
+        "width": "320",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-140",
+       "value": "停車場",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillColor=#fad9d5;gradientDirection=east;strokeColor=#ae4132;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1040",
+        "y": "360",
+        "width": "280",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-153",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "40",
+        "y": "800",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-154",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "40",
+        "y": "840",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-155",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "80",
+        "y": "800",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-156",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "80",
+        "y": "840",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-157",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "140",
+          "y": "940",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "140",
+          "y": "180",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-158",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "180",
+          "y": "180",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "180",
+          "y": "940",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-181",
+       "value": "<span style=\"color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start;\">%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%22%20style%3D%22endArrow%3Dclassic%3Bhtml%3D1%3Brounded%3D0%3B%22%20edge%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%3CmxPoint%20x%3D%22199%22%20y%3D%22380%22%20as%3D%22sourcePoint%22%2F%3E%3CmxPoint%20x%3D%22199%22%20y%3D%221140%22%20as%3D%22targetPoint%22%2F%3E%3C%2FmxGeometry%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E</span>",
+       "style": "verticalLabelPosition=bottom;outlineConnect=0;align=center;dashed=0;html=1;verticalAlign=top;shape=mxgraph.pid.misc.tank_car,_tank_wagon;fillColor=#dae8fc;strokeColor=#6c8ebf;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "640",
+        "y": "240",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-184",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "980",
+          "y": "220",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "220",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-185",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "220",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-186",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "99.5",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "99.5",
+          "y": "220",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-187",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "100",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-189",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "300",
+          "y": "220",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "300",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-190",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "340",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "340",
+          "y": "220",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-191",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "300",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "340",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-196",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "180",
+          "y": "780",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "780",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-197",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "740",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "180",
+          "y": "740",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-198",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "780",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "60",
+          "y": "740",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-199",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "59.71000000000001",
+          "y": "940",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "59.71000000000001",
+          "y": "900",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-200",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1760",
+        "y": "80",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-201",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1760",
+        "y": "160",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-202",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1760",
+        "y": "240",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-203",
+       "value": "充電站",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;gradientDirection=east;fillColor=#fad7ac;strokeColor=#b46504;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1760",
+        "y": "320",
+        "width": "40",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-316",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "580",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "580",
+          "y": "220",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-317",
+       "value": "",
+       "style": "endArrow=classic;html=1;rounded=0;",
+       "parent": "1",
+       "edge": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "50",
+        "height": "50",
+        "relative": "1",
+        "as": "geometry"
+       },
+       "mxPoint": [
+        {
+         "_attributes": {
+          "x": "540",
+          "y": "60",
+          "as": "sourcePoint"
+         }
+        },
+        {
+         "_attributes": {
+          "x": "580",
+          "y": "60",
+          "as": "targetPoint"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-11",
+       "value": "牆壁",
+       "style": "rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1000",
+        "y": "360",
+        "width": "40",
+        "height": "520",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-12",
+       "value": "牆壁",
+       "style": "rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1000",
+        "y": "40",
+        "width": "40",
+        "height": "240",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-41",
+       "value": "牆壁",
+       "style": "rounded=0;whiteSpace=wrap;html=1;direction=south;fillColor=#bac8d3;strokeColor=#23445d;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1040",
+        "y": "400",
+        "width": "320",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-43",
+       "value": "牆壁",
+       "style": "rounded=0;whiteSpace=wrap;html=1;direction=south;fillColor=#bac8d3;strokeColor=#23445d;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1440",
+        "y": "400",
+        "width": "360",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-63",
+       "value": "牆壁",
+       "style": "rounded=0;whiteSpace=wrap;html=1;direction=west;fillColor=#bac8d3;strokeColor=#23445d;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1800",
+        "width": "40",
+        "height": "1000",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-64",
+       "value": "牆壁",
+       "style": "rounded=0;whiteSpace=wrap;html=1;direction=south;fillColor=#bac8d3;strokeColor=#23445d;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "1840",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-77",
+       "value": "牆壁",
+       "style": "rounded=0;whiteSpace=wrap;html=1;direction=south;fillColor=#bac8d3;strokeColor=#23445d;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "y": "960",
+        "width": "1840",
+        "height": "40",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "F_HJu9IDEADny9IZh7aw-78",
+       "value": "牆壁",
+       "style": "rounded=0;whiteSpace=wrap;html=1;direction=west;fillColor=#bac8d3;strokeColor=#23445d;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "width": "40",
+        "height": "1000",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "f9IMaqsHJ-XC4fb6sqo7-1",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "600",
+        "y": "520",
+        "width": "320",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "f9IMaqsHJ-XC4fb6sqo7-3",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1120",
+        "y": "560",
+        "width": "240",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "f9IMaqsHJ-XC4fb6sqo7-4",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1440",
+        "y": "160",
+        "width": "240",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "f9IMaqsHJ-XC4fb6sqo7-5",
+       "value": "貨架",
+       "style": "rounded=0;whiteSpace=wrap;html=1;",
+       "parent": "1",
+       "vertex": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1120",
+        "y": "160",
+        "width": "240",
+        "height": "80",
+        "as": "geometry"
+       }
+      }
+     },
+     {
+      "_attributes": {
+       "id": "f9IMaqsHJ-XC4fb6sqo7-6",
+       "value": "停車場",
+       "style": "rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;sketch=0;fillColor=#fad9d5;gradientDirection=east;strokeColor=#ae4132;",
+       "vertex": "1",
+       "parent": "1"
+      },
+      "mxGeometry": {
+       "_attributes": {
+        "x": "1760",
+        "y": "440",
+        "width": "40",
+        "height": "520",
+        "as": "geometry"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }

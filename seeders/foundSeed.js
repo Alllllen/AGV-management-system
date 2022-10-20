@@ -234,192 +234,197 @@ const saveVertex = () => {
     })
   );
 };
-const saveGuidePath = catchAsync(async () => {
-  let vertexs = [];
-  let entryVertexs = [];
-  let edges = [];
+const saveGuidePath = () => {
+  return new Promise(
+    catchAsync(async (resolve, reject) => {
+      let vertexs = [];
+      let entryVertexs = [];
+      let edges = [];
 
-  //get oiginal vertex
-  let vs = getFoundation('v'); //{}
-  for (let i in vs) {
-    vertexs.push(vs[i]);
-  }
-  //get every entry point as verte
-  let vs2 = getFoundation('e'); //{}
-  for (let i in vs2) {
-    entryVertexs.push(vs2[i]);
-    vertexs.push(vs2[i]);
-  }
+      //get oiginal vertex
+      let vs = getFoundation('v'); //{}
+      for (let i in vs) {
+        vertexs.push(vs[i]);
+      }
+      //get every entry point as verte
+      let vs2 = getFoundation('e'); //{}
+      for (let i in vs2) {
+        entryVertexs.push(vs2[i]);
+        vertexs.push(vs2[i]);
+      }
 
-  // get edges
-  for (let i = 0; i < cells.length; i++) {
-    let cellValue = cells[i]['_attributes']['value'];
-    if (cellValue === '') {
-      let CellMxGeometry = cells[i]['mxGeometry']['mxPoint'];
+      // get edges
+      for (let i = 0; i < cells.length; i++) {
+        let cellValue = cells[i]['_attributes']['value'];
+        if (cellValue === '') {
+          let CellMxGeometry = cells[i]['mxGeometry']['mxPoint'];
 
-      let sourceX = (CellMxGeometry[0]['_attributes']['x'] - 20) / 40;
-      let sourceY = (CellMxGeometry[0]['_attributes']['y'] - 20) / 40;
-      let targetX = (CellMxGeometry[1]['_attributes']['x'] - 20) / 40;
-      let targetY = (CellMxGeometry[1]['_attributes']['y'] - 20) / 40;
-      edges.push({
-        sourceX: sourceX,
-        sourceY: sourceY,
-        targetX: targetX,
-        targetY: targetY,
-      });
-    }
-  }
+          let sourceX = (CellMxGeometry[0]['_attributes']['x'] - 20) / 40;
+          let sourceY = (CellMxGeometry[0]['_attributes']['y'] - 20) / 40;
+          let targetX = (CellMxGeometry[1]['_attributes']['x'] - 20) / 40;
+          let targetY = (CellMxGeometry[1]['_attributes']['y'] - 20) / 40;
+          edges.push({
+            sourceX: sourceX,
+            sourceY: sourceY,
+            targetX: targetX,
+            targetY: targetY,
+          });
+        }
+      }
 
-  // 把所有點跟點有連線的連起來
-  let pair = [];
-  let pairs = [];
-  let weight = 0;
+      // 把所有點跟點有連線的連起來
+      let pair = [];
+      let pairs = [];
+      let weight = 0;
 
-  for (let i = 0; i < edges.length; i++) {
-    let sourceX = edges[i]['sourceX'];
-    let sourceY = edges[i]['sourceY'];
-    let targetX = edges[i]['targetX'];
-    let targetY = edges[i]['targetY'];
+      for (let i = 0; i < edges.length; i++) {
+        let sourceX = edges[i]['sourceX'];
+        let sourceY = edges[i]['sourceY'];
+        let targetX = edges[i]['targetX'];
+        let targetY = edges[i]['targetY'];
 
-    let currentV = {};
-    let lastV = {};
+        let currentV = {};
+        let lastV = {};
 
-    if (sourceX === targetX) {
-      lastV = { x: sourceX, y: sourceY };
+        if (sourceX === targetX) {
+          lastV = { x: sourceX, y: sourceY };
 
-      if (sourceY < targetY) {
-        for (let j = sourceY + 1; j <= targetY; j++) {
-          weight++;
-          currentV = { x: sourceX, y: j };
+          if (sourceY < targetY) {
+            for (let j = sourceY + 1; j <= targetY; j++) {
+              weight++;
+              currentV = { x: sourceX, y: j };
+              if (
+                vertexs.some(
+                  (vertex) =>
+                    vertex.startX === currentV.x && vertex.startY === currentV.y
+                )
+              ) {
+                pair.push(lastV, currentV, weight);
+                lastV = currentV;
+                pairs.push(pair);
+                weight = 0;
+                pair = [];
+              }
+            }
+          }
+          if (sourceY > targetY) {
+            lastV = { x: sourceX, y: targetY };
+
+            for (let j = targetY + 1; j <= sourceY; j++) {
+              weight++;
+              currentV = { x: sourceX, y: j };
+              if (
+                vertexs.some(
+                  (vertex) =>
+                    vertex.startX === currentV.x && vertex.startY === currentV.y
+                )
+              ) {
+                pair.push(currentV, lastV, weight);
+                lastV = currentV;
+                pairs.push(pair);
+                weight = 0;
+                pair = [];
+              }
+            }
+          }
+        }
+        if (sourceY === targetY) {
+          lastV = { x: sourceX, y: sourceY };
+          if (sourceX < targetX) {
+            for (let j = sourceX + 1; j <= targetX; j++) {
+              weight++;
+              currentV = { x: j, y: sourceY };
+              if (
+                vertexs.some(
+                  (vertex) =>
+                    vertex.startX === currentV.x && vertex.startY === currentV.y
+                )
+              ) {
+                pair.push(lastV, currentV, weight);
+                lastV = currentV;
+                pairs.push(pair);
+                weight = 0;
+                pair = [];
+              }
+            }
+          }
+
+          if (sourceX > targetX) {
+            lastV = { x: targetX, y: sourceY };
+            for (let j = targetX + 1; j <= sourceX; j++) {
+              weight++;
+              currentV = { x: j, y: sourceY };
+              if (
+                vertexs.some(
+                  (vertex) =>
+                    vertex.startX === currentV.x && vertex.startY === currentV.y
+                )
+              ) {
+                pair.push(currentV, lastV, weight);
+                lastV = currentV;
+                pairs.push(pair);
+                weight = 0;
+                pair = [];
+              }
+            }
+          }
+        }
+      }
+      //找出entry point出去到其他點的線
+      for (let i = 0; i < entryVertexs.length; i++) {
+        for (let j = 0; j < pairs.length; j++) {
           if (
-            vertexs.some(
-              (vertex) =>
-                vertex.startX === currentV.x && vertex.startY === currentV.y
-            )
+            entryVertexs[i].startX === pairs[j][1]['x'] &&
+            entryVertexs[i].startY === pairs[j][1]['y']
           ) {
-            pair.push(lastV, currentV, weight);
-            lastV = currentV;
+            pair.push(
+              { x: entryVertexs[i].startX, y: entryVertexs[i].startY },
+              { x: pairs[j][0]['x'], y: pairs[j][0]['y'] },
+              pairs[j][2]
+            );
             pairs.push(pair);
-            weight = 0;
             pair = [];
           }
         }
       }
-      if (sourceY > targetY) {
-        lastV = { x: sourceX, y: targetY };
 
-        for (let j = targetY + 1; j <= sourceY; j++) {
-          weight++;
-          currentV = { x: sourceX, y: j };
+      //save data
+      const nodes = await Vertex.find({});
+      for (let j in nodes) {
+        let adjacents = [];
+        for (let i = 0; i < pairs.length; i++) {
           if (
-            vertexs.some(
-              (vertex) =>
-                vertex.startX === currentV.x && vertex.startY === currentV.y
-            )
+            nodes[j]['x'] === pairs[i][0]['x'] &&
+            nodes[j]['y'] === pairs[i][0]['y']
           ) {
-            pair.push(currentV, lastV, weight);
-            lastV = currentV;
-            pairs.push(pair);
-            weight = 0;
-            pair = [];
+            let adjacent = await Vertex.find({
+              x: pairs[i][1]['x'],
+              y: pairs[i][1]['y'],
+            });
+            adjacents.push({
+              adjacentId: adjacent[0]['id'],
+              adjacentX: adjacent[0]['x'],
+              adjacentY: adjacent[0]['y'],
+              adjacentZ: adjacent[0]['z'],
+              weight: pairs[i][2],
+            });
           }
         }
-      }
-    }
-    if (sourceY === targetY) {
-      lastV = { x: sourceX, y: sourceY };
-      if (sourceX < targetX) {
-        for (let j = sourceX + 1; j <= targetX; j++) {
-          weight++;
-          currentV = { x: j, y: sourceY };
-          if (
-            vertexs.some(
-              (vertex) =>
-                vertex.startX === currentV.x && vertex.startY === currentV.y
-            )
-          ) {
-            pair.push(lastV, currentV, weight);
-            lastV = currentV;
-            pairs.push(pair);
-            weight = 0;
-            pair = [];
-          }
-        }
-      }
-
-      if (sourceX > targetX) {
-        lastV = { x: targetX, y: sourceY };
-        for (let j = targetX + 1; j <= sourceX; j++) {
-          weight++;
-          currentV = { x: j, y: sourceY };
-          if (
-            vertexs.some(
-              (vertex) =>
-                vertex.startX === currentV.x && vertex.startY === currentV.y
-            )
-          ) {
-            pair.push(currentV, lastV, weight);
-            lastV = currentV;
-            pairs.push(pair);
-            weight = 0;
-            pair = [];
-          }
-        }
-      }
-    }
-  }
-  //找出entry point出去到其他點的線
-  for (let i = 0; i < entryVertexs.length; i++) {
-    for (let j = 0; j < pairs.length; j++) {
-      if (
-        entryVertexs[i].startX === pairs[j][1]['x'] &&
-        entryVertexs[i].startY === pairs[j][1]['y']
-      ) {
-        pair.push(
-          { x: entryVertexs[i].startX, y: entryVertexs[i].startY },
-          { x: pairs[j][0]['x'], y: pairs[j][0]['y'] },
-          pairs[j][2]
-        );
-        pairs.push(pair);
-        pair = [];
-      }
-    }
-  }
-
-  //save data
-  const nodes = await Vertex.find({});
-  for (let j in nodes) {
-    let adjacents = [];
-    for (let i = 0; i < pairs.length; i++) {
-      if (
-        nodes[j]['x'] === pairs[i][0]['x'] &&
-        nodes[j]['y'] === pairs[i][0]['y']
-      ) {
-        let adjacent = await Vertex.find({
-          x: pairs[i][1]['x'],
-          y: pairs[i][1]['y'],
+        await GuidePath.create({
+          vertex: nodes[j]['id'],
+          vertexX: nodes[j]['x'],
+          vertexY: nodes[j]['y'],
+          vertexZ: nodes[j]['z'],
+          adjacents: adjacents,
         });
-        adjacents.push({
-          adjacentId: adjacent[0]['id'],
-          adjacentX: adjacent[0]['x'],
-          adjacentY: adjacent[0]['y'],
-          adjacentZ: adjacent[0]['z'],
-          weight: pairs[i][2],
-        });
+        adjacents = [];
       }
-    }
-    await GuidePath.create({
-      vertex: nodes[j]['id'],
-      vertexX: nodes[j]['x'],
-      vertexY: nodes[j]['y'],
-      vertexZ: nodes[j]['z'],
-      adjacents: adjacents,
-    });
-    adjacents = [];
-  }
 
-  console.log('save guidePath');
-});
+      console.log('save guidePath');
+      resolve();
+    })
+  );
+};
 
 exports.clearFounds = () => {
   return new Promise(
@@ -450,7 +455,7 @@ exports.setFounds = () => {
       saveBlock();
 
       await saveVertex();
-      saveGuidePath();
+      await saveGuidePath();
       resolve();
     })
   );
