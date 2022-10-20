@@ -80,7 +80,7 @@ const getEntry = (key, foundations) => {
   }
   return foundationEntrys;
 };
-exports.saveWall = catchAsync(async () => {
+const saveWall = catchAsync(async () => {
   let foundations = getFoundation('w', 'e'); //{}
 
   //save data
@@ -96,7 +96,7 @@ exports.saveWall = catchAsync(async () => {
   }
   console.log('save Wall');
 });
-exports.saveElevator = catchAsync(async () => {
+const saveElevator = catchAsync(async () => {
   //lift也等於elevator為了不跟entry的e搞混
   let foundations = getFoundation('l', 'e'); //{}
   let foundationEntrys = getEntry('l', foundations); //{}
@@ -118,7 +118,7 @@ exports.saveElevator = catchAsync(async () => {
   }
   console.log('save elevator');
 });
-exports.saveCharge = catchAsync(async () => {
+const saveCharge = catchAsync(async () => {
   let foundations = getFoundation('c', 'e'); //{}
   let foundationEntrys = getEntry('c', foundations); //{}
 
@@ -138,7 +138,7 @@ exports.saveCharge = catchAsync(async () => {
   }
   console.log('save charge');
 });
-exports.savePark = catchAsync(async () => {
+const savePark = catchAsync(async () => {
   let foundations = getFoundation('p', 'e'); //{}
   let foundationEntrys = getEntry('p', foundations); //{}
 
@@ -158,7 +158,7 @@ exports.savePark = catchAsync(async () => {
   }
   console.log('save park');
 });
-exports.saveSection = () => {
+const saveSection = () => {
   return new Promise(
     catchAsync(async (resolve, reject) => {
       let foundations = getFoundation('s', 'e'); //{}
@@ -179,7 +179,7 @@ exports.saveSection = () => {
     })
   );
 };
-exports.saveBlock = catchAsync(async () => {
+const saveBlock = catchAsync(async () => {
   let foundations = getFoundation('b', 's'); //{}
 
   //save data 用mongoose 找出其對應的sction id
@@ -205,7 +205,7 @@ exports.saveBlock = catchAsync(async () => {
 
   console.log('save block');
 });
-exports.saveVertex = () => {
+const saveVertex = () => {
   return new Promise(
     catchAsync(async (resolve, reject) => {
       let foundations1 = getFoundation('v'); //{}
@@ -234,7 +234,7 @@ exports.saveVertex = () => {
     })
   );
 };
-exports.saveGuidePath = catchAsync(async () => {
+const saveGuidePath = catchAsync(async () => {
   let vertexs = [];
   let entryVertexs = [];
   let edges = [];
@@ -432,7 +432,25 @@ exports.clearFounds = () => {
       await Sensor.deleteMany({});
       await Charge.deleteMany({});
       await Park.deleteMany({});
-      console.log('clear Founds');
+      console.log('clear Found data');
+      resolve();
+    })
+  );
+};
+
+exports.setFounds = () => {
+  return new Promise(
+    catchAsync(async (resolve, reject) => {
+      saveWall();
+      saveElevator();
+      saveCharge();
+      savePark();
+
+      await saveSection();
+      saveBlock();
+
+      await saveVertex();
+      saveGuidePath();
       resolve();
     })
   );
