@@ -45,8 +45,8 @@
  */
 
 /** 0. Import Font & animation  **/
-@import "https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap";
-@import "../modules/animate/animate.min.css";
+@import 'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap';
+@import '../modules/animate/animate.min.css';
 
 /** 1. Font Color White CSS **/
 :root {
@@ -782,7 +782,7 @@ a {
 }
 
 .breadcrumb.breadcrumb-custom .breadcrumb-item:before {
-  content: "";
+  content: '';
 }
 
 .breadcrumb.breadcrumb-custom .breadcrumb-item a {
@@ -799,7 +799,7 @@ a {
   top: -9px;
   width: 0;
   height: 0;
-  content: "";
+  content: '';
   border-top: 21px solid transparent;
   border-bottom: 21px solid transparent;
 }
@@ -898,7 +898,7 @@ a {
   float: left;
   padding-right: 0.5rem;
   color: #6c757d;
-  content: "/";
+  content: '/';
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
@@ -964,7 +964,7 @@ button,
   margin-bottom: 10px;
   margin-left: 10px;
 }
-.btn-group:not(.dropdown) .btn:not([class*="btn-"]) {
+.btn-group:not(.dropdown) .btn:not([class*='btn-']) {
   border: 1px solid #dfe3e7;
 }
 .btn-group > .btn {
@@ -1123,7 +1123,7 @@ ul.timeline {
   list-style-type: none;
 }
 ul.timeline:before {
-  content: " ";
+  content: ' ';
   display: inline-block;
   position: absolute;
   left: 0px;
@@ -1136,7 +1136,7 @@ ul.timeline > li {
   padding-left: 20px;
 }
 ul.timeline > li:before {
-  content: " ";
+  content: ' ';
   background: white;
   display: inline-block;
   position: absolute;
@@ -1172,7 +1172,7 @@ ul.timeline > li:before {
 .price-tabs .nav-link {
   color: #00b5ec;
   font-weight: 500;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   padding: 12px 35px;
   display: inline-block;
@@ -1232,7 +1232,7 @@ ul.timeline > li:before {
   border-radius: 0 0 10px 10px;
   background-color: #081a51;
   position: absolute;
-  content: "";
+  content: '';
   left: 0;
   bottom: -17px;
   z-index: -1;
@@ -1506,22 +1506,22 @@ ul.timeline > li:before {
   }
 }
 
-.form-group[class*="has-icon-"].has-icon-left .form-control-icon {
+.form-group[class*='has-icon-'].has-icon-left .form-control-icon {
   left: 0;
 }
-.form-group[class*="has-icon-"] .form-control-icon {
+.form-group[class*='has-icon-'] .form-control-icon {
   transform: translateY(-50%);
   position: absolute;
   padding: 0 0.6rem;
   top: 50%;
 }
-.form-group[class*="has-icon-"]
+.form-group[class*='has-icon-']
   .form-control.form-control-xl
   ~ .form-control-icon
   i {
   font-size: 1.6rem;
 }
-.form-group[class*="has-icon-"] .form-control.form-control-xl {
+.form-group[class*='has-icon-'] .form-control.form-control-xl {
   padding-left: 3rem;
 }
 .form-control.form-control-xl {
@@ -2315,7 +2315,7 @@ button.bg-dark:focus {
 .clearfix::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 
 .d-none {
@@ -3090,9 +3090,9 @@ fieldset:disabled a.btn {
   margin-top: 0.5rem;
 }
 
-input[type="submit"].btn-block,
-input[type="reset"].btn-block,
-input[type="button"].btn-block {
+input[type='submit'].btn-block,
+input[type='reset'].btn-block,
+input[type='button'].btn-block {
   width: 100%;
 }
 
@@ -3316,7 +3316,7 @@ button.bg-dark:focus {
 .clearfix::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 
 .d-none {
@@ -3527,7 +3527,7 @@ button.bg-dark:focus {
 
 .embed-responsive::before {
   display: block;
-  content: "";
+  content: '';
 }
 
 .embed-responsive .embed-responsive-item,
@@ -4497,7 +4497,7 @@ button.bg-dark:focus {
 }
 .progress .progress-bar.progress-label:before {
   color: #495057;
-  content: attr(aria-valuenow) "%";
+  content: attr(aria-valuenow) '%';
   font-size: 0.8rem;
   position: absolute;
   right: 0;
@@ -4587,36 +4587,36 @@ article dl {
 }
 
 .snake {
-  background-color: hsl(200, 100%, 50%);
+  background-color: #dc3545;
   border: 0.25vmin solid black;
 }
 
 .wall {
-  background-color: hsl(0, 0%, 49%);
+  background-color: darkgrey;
   /* border: .025vmin solid black; */
   text-align: center;
 }
 
 .park {
-  background-color: hsl(81, 65%, 35%);
+  background-color: darkslategray;
   /* border: .025vmin solid black; */
   text-align: center;
 }
 
 .block {
-  background-color: hsl(197, 35%, 39%);
+  background-color: gray;
   /* border: .025vmin solid black; */
   text-align: center;
 }
 
 .charge {
-  background-color: hsl(315, 28%, 43%);
+  background-color: darkolivegreen;
   /* border: .025vmin solid black; */
   text-align: center;
 }
 
 .elevator {
-  background-color: hsl(290, 40%, 52%);
+  background-color: darkkhaki;
   /* border: .025vmin solid black; */
   text-align: center;
 }

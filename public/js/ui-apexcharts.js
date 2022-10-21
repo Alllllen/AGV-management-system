@@ -1,10 +1,10 @@
 var lineOptions = {
   chart: {
-    type: "line",
+    type: 'line',
   },
   series: [
     {
-      name: "sales",
+      name: 'sales',
       data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
     },
   ],
@@ -15,7 +15,7 @@ var lineOptions = {
 var candleOptions = {
   series: [
     {
-      name: "candle",
+      name: 'candle',
       data: [
         {
           x: new Date(1538778600000),
@@ -262,27 +262,27 @@ var candleOptions = {
   ],
   chart: {
     height: 350,
-    type: "candlestick",
+    type: 'candlestick',
   },
   title: {
-    text: "CandleStick Chart - Category X-axis",
-    align: "left",
+    text: 'CandleStick Chart - Category X-axis',
+    align: 'left',
   },
   annotations: {
     xaxis: [
       {
-        x: "Oct 06 14:00",
-        borderColor: "#00E396",
+        x: 'Oct 06 14:00',
+        borderColor: '#00E396',
         label: {
-          borderColor: "#00E396",
+          borderColor: '#00E396',
           style: {
-            fontSize: "12px",
-            color: "#fff",
-            background: "#00E396",
+            fontSize: '12px',
+            color: '#fff',
+            background: '#00E396',
           },
-          orientation: "horizontal",
+          orientation: 'horizontal',
           offsetY: 7,
-          text: "Annotation Test",
+          text: 'Annotation Test',
         },
       },
     ],
@@ -291,10 +291,10 @@ var candleOptions = {
     enabled: true,
   },
   xaxis: {
-    type: "category",
+    type: 'category',
     labels: {
       formatter: function (val) {
-        return dayjs(val).format("MMM DD HH:mm");
+        return dayjs(val).format('MMM DD HH:mm');
       },
     },
   },
@@ -308,27 +308,27 @@ var candleOptions = {
 var barOptions = {
   series: [
     {
-      name: "Net Profit",
+      name: 'Net Profit',
       data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
     },
     {
-      name: "Revenue",
+      name: 'Revenue',
       data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
     },
     {
-      name: "Free Cash Flow",
+      name: 'Free Cash Flow',
       data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
     },
   ],
   chart: {
-    type: "bar",
+    type: 'bar',
     height: 350,
   },
   plotOptions: {
     bar: {
       horizontal: false,
-      columnWidth: "55%",
-      endingShape: "rounded",
+      columnWidth: '55%',
+      endingShape: 'rounded',
     },
   },
   dataLabels: {
@@ -337,14 +337,14 @@ var barOptions = {
   stroke: {
     show: true,
     width: 2,
-    colors: ["transparent"],
+    colors: ['transparent'],
   },
   xaxis: {
-    categories: ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
   },
   yaxis: {
     title: {
-      text: "$ (thousands)",
+      text: '$ (thousands)',
     },
   },
   fill: {
@@ -353,7 +353,7 @@ var barOptions = {
   tooltip: {
     y: {
       formatter: function (val) {
-        return "$ " + val + " thousands";
+        return '$ ' + val + ' thousands';
       },
     },
   },
@@ -363,7 +363,7 @@ var radialGradientOptions = {
   series: [35],
   chart: {
     height: 350,
-    type: "radialBar",
+    type: 'radialBar',
     toolbar: {
       show: true,
     },
@@ -374,12 +374,12 @@ var radialGradientOptions = {
       endAngle: 225,
       hollow: {
         margin: 0,
-        size: "70%",
-        background: "#fff",
+        size: '70%',
+        background: '#fff',
         image: undefined,
         imageOffsetX: 0,
         imageOffsetY: 0,
-        position: "front",
+        position: 'front',
         dropShadow: {
           enabled: true,
           top: 3,
@@ -389,8 +389,8 @@ var radialGradientOptions = {
         },
       },
       track: {
-        background: "#fff",
-        strokeWidth: "67%",
+        background: '#fff',
+        strokeWidth: '67%',
         margin: 0, // margin is in pixels
         dropShadow: {
           enabled: true,
@@ -406,27 +406,27 @@ var radialGradientOptions = {
         name: {
           offsetY: -10,
           show: true,
-          color: "#888",
-          fontSize: "17px",
+          color: '#888',
+          fontSize: '17px',
         },
         value: {
           formatter: function (val) {
             return parseInt(val);
           },
-          color: "#111",
-          fontSize: "36px",
+          color: '#111',
+          fontSize: '36px',
           show: true,
         },
       },
     },
   },
   fill: {
-    type: "gradient",
+    type: 'gradient',
     gradient: {
-      shade: "dark",
-      type: "horizontal",
+      shade: 'dark',
+      type: 'horizontal',
       shadeIntensity: 0.5,
-      gradientToColors: ["#ABE5A1"],
+      gradientToColors: ['#ABE5A1'],
       inverseColors: true,
       opacityFrom: 1,
       opacityTo: 1,
@@ -434,46 +434,46 @@ var radialGradientOptions = {
     },
   },
   stroke: {
-    lineCap: "round",
+    lineCap: 'round',
   },
-  labels: ["Percent"],
+  labels: ['Percent'],
 };
 var areaOptions = {
   series: [
     {
-      name: "series1",
+      name: 'series1',
       data: [31, 40, 28, 51, 42, 109, 100],
     },
     {
-      name: "series2",
+      name: 'series2',
       data: [11, 32, 45, 32, 34, 52, 41],
     },
   ],
   chart: {
     height: 350,
-    type: "area",
+    type: 'area',
   },
   dataLabels: {
     enabled: false,
   },
   stroke: {
-    curve: "smooth",
+    curve: 'smooth',
   },
   xaxis: {
-    type: "datetime",
+    type: 'datetime',
     categories: [
-      "2018-09-19T00:00:00.000Z",
-      "2018-09-19T01:30:00.000Z",
-      "2018-09-19T02:30:00.000Z",
-      "2018-09-19T03:30:00.000Z",
-      "2018-09-19T04:30:00.000Z",
-      "2018-09-19T05:30:00.000Z",
-      "2018-09-19T06:30:00.000Z",
+      '2018-09-19T00:00:00.000Z',
+      '2018-09-19T01:30:00.000Z',
+      '2018-09-19T02:30:00.000Z',
+      '2018-09-19T03:30:00.000Z',
+      '2018-09-19T04:30:00.000Z',
+      '2018-09-19T05:30:00.000Z',
+      '2018-09-19T06:30:00.000Z',
     ],
   },
   tooltip: {
     x: {
-      format: "dd/MM/yy HH:mm",
+      format: 'dd/MM/yy HH:mm',
     },
   },
 };
@@ -481,20 +481,20 @@ var radialBarOptions = {
   series: [44, 55, 67, 83],
   chart: {
     height: 350,
-    type: "radialBar",
+    type: 'radialBar',
   },
   plotOptions: {
     radialBar: {
       dataLabels: {
         name: {
-          fontSize: "22px",
+          fontSize: '22px',
         },
         value: {
-          fontSize: "16px",
+          fontSize: '16px',
         },
         total: {
           show: true,
-          label: "Total",
+          label: 'Total',
           formatter: function (w) {
             // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
             return 249;
@@ -503,20 +503,20 @@ var radialBarOptions = {
       },
     },
   },
-  labels: ["Apples", "Oranges", "Bananas", "Berries"],
+  labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
 };
-var bar = new ApexCharts(document.querySelector("#bar"), barOptions);
-var line = new ApexCharts(document.querySelector("#line"), lineOptions);
-var candle = new ApexCharts(document.querySelector("#candle"), candleOptions);
+var bar = new ApexCharts(document.querySelector('#bar'), barOptions);
+var line = new ApexCharts(document.querySelector('#line'), lineOptions);
+var candle = new ApexCharts(document.querySelector('#candle'), candleOptions);
 var radialGradient = new ApexCharts(
-  document.querySelector("#radialGradient"),
+  document.querySelector('#radialGradient'),
   radialGradientOptions
 );
 var radialGradient_ = new ApexCharts(
-  document.querySelector("#radialGradient_"),
+  document.querySelector('#radialGradient_'),
   radialGradientOptions
 );
-var area = new ApexCharts(document.querySelector("#area"), areaOptions);
+var area = new ApexCharts(document.querySelector('#area'), areaOptions);
 
 area.render();
 radialGradient.render();
@@ -527,12 +527,12 @@ line.render();
 
 window.Apex = {
   chart: {
-    foreColor: "#081A51",
+    foreColor: '#081A51',
     toolbar: {
       show: false,
     },
   },
-  colors: ["#FCCF31", "#17ead9", "#f02fc2"],
+  colors: ['#FCCF31', '#17ead9', '#f02fc2'],
   stroke: {
     width: 3,
   },
@@ -540,27 +540,27 @@ window.Apex = {
     enabled: false,
   },
   grid: {
-    borderColor: "#40475D",
+    borderColor: '#40475D',
   },
   xaxis: {
     axisTicks: {
-      color: "#333",
+      color: '#333',
     },
     axisBorder: {
-      color: "#333",
+      color: '#333',
     },
   },
   fill: {
-    type: "gradient",
+    type: 'gradient',
     gradient: {
-      gradientToColors: ["#F55555", "#6078ea", "#6094ea"],
+      gradientToColors: ['#F55555', '#6078ea', '#6094ea'],
     },
   },
   tooltip: {
-    theme: "dark",
+    theme: 'dark',
     x: {
       formatter: function (val) {
-        return moment(new Date(val)).format("HH:mm:ss");
+        return moment(new Date(val)).format('HH:mm:ss');
       },
     },
   },
@@ -619,7 +619,7 @@ function getNewData(baseval, yrange) {
 var optionsColumn = {
   chart: {
     height: 350,
-    type: "bar",
+    type: 'bar',
     animations: {
       enabled: false,
     },
@@ -642,7 +642,7 @@ var optionsColumn = {
               subtitle: {
                 text:
                   parseInt(getRangeRandom({ min: 1, max: 20 })).toString() +
-                  "%",
+                  '%',
               },
             },
             false,
@@ -666,9 +666,9 @@ var optionsColumn = {
   },
   series: [
     {
-      name: "Load Average",
+      name: 'Load Average',
       data: generateMinuteWiseTimeSeries(
-        new Date("12/12/2016 00:20:00").getTime(),
+        new Date('12/12/2016 00:20:00').getTime(),
         12,
         {
           min: 10,
@@ -678,26 +678,26 @@ var optionsColumn = {
     },
   ],
   title: {
-    text: "Load Average",
-    align: "left",
+    text: 'Load Average',
+    align: 'left',
     style: {
-      fontSize: "12px",
+      fontSize: '12px',
     },
   },
   subtitle: {
-    text: "20%",
+    text: '20%',
     floating: true,
-    align: "right",
+    align: 'right',
     offsetY: 0,
     style: {
-      fontSize: "22px",
+      fontSize: '22px',
     },
   },
   fill: {
-    type: "gradient",
+    type: 'gradient',
     gradient: {
-      shade: "dark",
-      type: "vertical",
+      shade: 'dark',
+      type: 'vertical',
       shadeIntensity: 0.5,
       inverseColors: false,
       opacityFrom: 1,
@@ -706,7 +706,7 @@ var optionsColumn = {
     },
   },
   xaxis: {
-    type: "datetime",
+    type: 'datetime',
     range: 2700000,
   },
   legend: {
@@ -715,7 +715,7 @@ var optionsColumn = {
 };
 
 var chartColumn = new ApexCharts(
-  document.querySelector("#columnchart"),
+  document.querySelector('#columnchart'),
   optionsColumn
 );
 chartColumn.render();
@@ -723,11 +723,11 @@ chartColumn.render();
 var optionsLine = {
   chart: {
     height: 350,
-    type: "line",
+    type: 'line',
     stacked: true,
     animations: {
       enabled: true,
-      easing: "linear",
+      easing: 'linear',
       dynamicAnimation: {
         speed: 1000,
       },
@@ -747,7 +747,7 @@ var optionsLine = {
         newData2.shift();
 
         // check animation end event for just 1 series to avoid multiple updates
-        if (opts.el.node.getAttribute("index") === "0") {
+        if (opts.el.node.getAttribute('index') === '0') {
           window.setTimeout(function () {
             chartCtx.updateOptions(
               {
@@ -781,7 +781,7 @@ var optionsLine = {
     enabled: false,
   },
   stroke: {
-    curve: "straight",
+    curve: 'straight',
     width: 5,
   },
   grid: {
@@ -798,9 +798,9 @@ var optionsLine = {
   },
   series: [
     {
-      name: "Running",
+      name: 'Running',
       data: generateMinuteWiseTimeSeries(
-        new Date("12/12/2016 00:20:00").getTime(),
+        new Date('12/12/2016 00:20:00').getTime(),
         12,
         {
           min: 30,
@@ -809,9 +809,9 @@ var optionsLine = {
       ),
     },
     {
-      name: "Waiting",
+      name: 'Waiting',
       data: generateMinuteWiseTimeSeries(
-        new Date("12/12/2016 00:20:00").getTime(),
+        new Date('12/12/2016 00:20:00').getTime(),
         12,
         {
           min: 30,
@@ -821,47 +821,47 @@ var optionsLine = {
     },
   ],
   xaxis: {
-    type: "datetime",
+    type: 'datetime',
     range: 2700000,
   },
   title: {
-    text: "Processes",
-    align: "left",
+    text: 'Processes',
+    align: 'left',
     style: {
-      fontSize: "12px",
+      fontSize: '12px',
     },
   },
   subtitle: {
-    text: "20",
+    text: '20',
     floating: true,
-    align: "right",
+    align: 'right',
     offsetY: 0,
     style: {
-      fontSize: "22px",
+      fontSize: '22px',
     },
   },
   legend: {
     show: true,
     floating: true,
-    horizontalAlign: "left",
+    horizontalAlign: 'left',
     onItemClick: {
       toggleDataSeries: false,
     },
-    position: "top",
+    position: 'top',
     offsetY: -28,
     offsetX: 60,
   },
 };
 
 var chartLine = new ApexCharts(
-  document.querySelector("#linechart"),
+  document.querySelector('#linechart'),
   optionsLine
 );
 chartLine.render();
 
 var optionsCircle = {
   chart: {
-    type: "radialBar",
+    type: 'radialBar',
     height: 320,
     offsetY: -30,
     offsetX: 20,
@@ -872,34 +872,34 @@ var optionsCircle = {
       inverseOrder: false,
       hollow: {
         margin: 5,
-        size: "48%",
-        background: "transparent",
+        size: '48%',
+        background: 'transparent',
       },
       track: {
         show: true,
-        background: "#40475D",
-        strokeWidth: "10%",
+        background: '#40475D',
+        strokeWidth: '10%',
         opacity: 1,
         margin: 3, // margin is in pixels
       },
     },
   },
   series: [71, 63],
-  labels: ["Device 1", "Device 2"],
+  labels: ['Device 1', 'Device 2'],
   legend: {
     show: true,
-    position: "left",
+    position: 'left',
     offsetX: -30,
     offsetY: 10,
     formatter: function (val, opts) {
-      return val + " - " + opts.w.globals.series[opts.seriesIndex] + "%";
+      return val + ' - ' + opts.w.globals.series[opts.seriesIndex] + '%';
     },
   },
   fill: {
-    type: "gradient",
+    type: 'gradient',
     gradient: {
-      shade: "dark",
-      type: "horizontal",
+      shade: 'dark',
+      type: 'horizontal',
       shadeIntensity: 0.5,
       inverseColors: true,
       opacityFrom: 1,
@@ -910,15 +910,16 @@ var optionsCircle = {
 };
 
 var chartCircle = new ApexCharts(
-  document.querySelector("#circlechart"),
+  document.querySelector('#circlechart'),
   optionsCircle
 );
 chartCircle.render();
-
-var optionsProgress1 = {
+// agv status chart
+// idle
+let optionsProgress1 = {
   chart: {
     height: 70,
-    type: "bar",
+    type: 'bar',
     stacked: true,
     sparkline: {
       enabled: true,
@@ -927,9 +928,9 @@ var optionsProgress1 = {
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: "20%",
+      barHeight: '20%',
       colors: {
-        backgroundBarColors: ["#40475D"],
+        backgroundBarColors: ['#40475D'],
       },
     },
   },
@@ -938,7 +939,7 @@ var optionsProgress1 = {
   },
   series: [
     {
-      name: "Process 1",
+      name: 'Process 1',
       data: [44],
     },
   ],
@@ -946,22 +947,22 @@ var optionsProgress1 = {
     floating: true,
     offsetX: -10,
     offsetY: 5,
-    text: "Process 1",
+    text: 'Idle (parking or on the way to Park)',
   },
   subtitle: {
     floating: true,
-    align: "right",
+    align: 'right',
     offsetY: 0,
-    text: "44%",
+    text: '44%',
     style: {
-      fontSize: "20px",
+      fontSize: '20px',
     },
   },
   tooltip: {
     enabled: false,
   },
   xaxis: {
-    categories: ["Process 1"],
+    categories: ['Process 1'],
   },
   yaxis: {
     max: 100,
@@ -970,17 +971,16 @@ var optionsProgress1 = {
     opacity: 1,
   },
 };
-
-var chartProgress1 = new ApexCharts(
-  document.querySelector("#progress1"),
+let chartProgress1 = new ApexCharts(
+  document.querySelector('#progress1'),
   optionsProgress1
 );
 chartProgress1.render();
-
-var optionsProgress2 = {
+// charging
+let optionsProgress2 = {
   chart: {
     height: 70,
-    type: "bar",
+    type: 'bar',
     stacked: true,
     sparkline: {
       enabled: true,
@@ -989,19 +989,19 @@ var optionsProgress2 = {
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: "20%",
+      barHeight: '20%',
       colors: {
-        backgroundBarColors: ["#40475D"],
+        backgroundBarColors: ['#40475D'],
       },
     },
   },
-  colors: ["#17ead9"],
+  colors: ['#17ead9'],
   stroke: {
     width: 0,
   },
   series: [
     {
-      name: "Process 2",
+      name: 'Process 2',
       data: [80],
     },
   ],
@@ -1009,45 +1009,45 @@ var optionsProgress2 = {
     floating: true,
     offsetX: -10,
     offsetY: 5,
-    text: "Process 2",
+    text: 'Charging',
   },
   subtitle: {
     floating: true,
-    align: "right",
+    align: 'right',
     offsetY: 0,
-    text: "80%",
+    text: '80%',
     style: {
-      fontSize: "20px",
+      fontSize: '20px',
     },
   },
   tooltip: {
     enabled: false,
   },
   xaxis: {
-    categories: ["Process 2"],
+    categories: ['Process 2'],
   },
   yaxis: {
     max: 100,
   },
   fill: {
-    type: "gradient",
+    type: 'gradient',
     gradient: {
       inverseColors: false,
-      gradientToColors: ["#6078ea"],
+      gradientToColors: ['#6078ea'],
     },
   },
 };
-
-var chartProgress2 = new ApexCharts(
-  document.querySelector("#progress2"),
+let chartProgress2 = new ApexCharts(
+  document.querySelector('#progress2'),
   optionsProgress2
 );
 chartProgress2.render();
 
-var optionsProgress3 = {
+//TransPorting
+let optionsProgress3 = {
   chart: {
     height: 70,
-    type: "bar",
+    type: 'bar',
     stacked: true,
     sparkline: {
       enabled: true,
@@ -1056,59 +1056,125 @@ var optionsProgress3 = {
   plotOptions: {
     bar: {
       horizontal: true,
-      barHeight: "20%",
+      barHeight: '20%',
       colors: {
-        backgroundBarColors: ["#40475D"],
+        backgroundBarColors: ['#40475D'],
       },
     },
   },
-  colors: ["#f02fc2"],
+  colors: ['#f02fc2'],
   stroke: {
     width: 0,
   },
   series: [
     {
-      name: "Process 3",
+      name: 'Process 3',
       data: [74],
     },
   ],
   fill: {
-    type: "gradient",
+    type: 'gradient',
     gradient: {
-      gradientToColors: ["#6094ea"],
+      gradientToColors: ['#6094ea'],
     },
   },
   title: {
     floating: true,
     offsetX: -10,
     offsetY: 5,
-    text: "Process 3",
+    text: 'TransPorting',
   },
   subtitle: {
     floating: true,
-    align: "right",
+    align: 'right',
     offsetY: 0,
-    text: "74%",
+    text: '74%',
     style: {
-      fontSize: "20px",
+      fontSize: '20px',
     },
   },
   tooltip: {
     enabled: false,
   },
   xaxis: {
-    categories: ["Process 3"],
+    categories: ['Process 3'],
   },
   yaxis: {
     max: 100,
   },
 };
-
-var chartProgress3 = new ApexCharts(
-  document.querySelector("#progress3"),
+let chartProgress3 = new ApexCharts(
+  document.querySelector('#progress3'),
   optionsProgress3
 );
 chartProgress3.render();
+
+//Malfunction
+let optionsProgress4 = {
+  chart: {
+    height: 70,
+    type: 'bar',
+    stacked: true,
+    sparkline: {
+      enabled: true,
+    },
+  },
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      barHeight: '20%',
+      colors: {
+        backgroundBarColors: ['#40475D'],
+      },
+    },
+  },
+  colors: ['#eadf17'],
+  stroke: {
+    width: 0,
+  },
+  series: [
+    {
+      name: 'Process42',
+      data: [80],
+    },
+  ],
+  title: {
+    floating: true,
+    offsetX: -10,
+    offsetY: 5,
+    text: 'Malfunction',
+  },
+  subtitle: {
+    floating: true,
+    align: 'right',
+    offsetY: 0,
+    text: '80%',
+    style: {
+      fontSize: '20px',
+    },
+  },
+  tooltip: {
+    enabled: false,
+  },
+  xaxis: {
+    categories: ['Process 4'],
+  },
+  yaxis: {
+    max: 100,
+  },
+  fill: {
+    type: 'gradient',
+    gradient: {
+      inverseColors: false,
+      gradientToColors: ['#56ea17'],
+    },
+  },
+};
+let chartProgress4 = new ApexCharts(
+  document.querySelector('#progress4'),
+  optionsProgress4
+);
+chartProgress4.render();
 
 window.setInterval(function () {
   iteration++;
@@ -1142,7 +1208,7 @@ window.setInterval(function () {
     getRangeRandom({ min: 10, max: 100 }),
   ]);
 
-  var p1Data = getRangeRandom({ min: 10, max: 100 });
+  let p1Data = getRangeRandom({ min: 10, max: 100 });
   chartProgress1.updateOptions({
     series: [
       {
@@ -1150,11 +1216,11 @@ window.setInterval(function () {
       },
     ],
     subtitle: {
-      text: p1Data + "%",
+      text: p1Data + '(' + p1Data + '%)',
     },
   });
 
-  var p2Data = getRangeRandom({ min: 10, max: 100 });
+  let p2Data = getRangeRandom({ min: 10, max: 100 });
   chartProgress2.updateOptions({
     series: [
       {
@@ -1162,11 +1228,11 @@ window.setInterval(function () {
       },
     ],
     subtitle: {
-      text: p2Data + "%",
+      text: p2Data + '(' + p2Data + '%)',
     },
   });
 
-  var p3Data = getRangeRandom({ min: 10, max: 100 });
+  let p3Data = getRangeRandom({ min: 10, max: 100 });
   chartProgress3.updateOptions({
     series: [
       {
@@ -1174,7 +1240,19 @@ window.setInterval(function () {
       },
     ],
     subtitle: {
-      text: p3Data + "%",
+      text: p3Data + '(' + p3Data + '%)',
+    },
+  });
+
+  let p4Data = getRangeRandom({ min: 10, max: 100 });
+  chartProgress4.updateOptions({
+    series: [
+      {
+        data: [p4Data],
+      },
+    ],
+    subtitle: {
+      text: p4Data + '(' + p4Data + '%)',
     },
   });
 }, 3000);
