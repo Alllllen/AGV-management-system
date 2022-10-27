@@ -6,7 +6,8 @@ const authController = require('./../controllers/authController');
 router
   .route('/')
   .get(assignmentController.getAllAssignment)
-  .post(authController.protect, assignmentController.createAssignment);
+  // .post(authController.protect, assignmentController.createAssignment);
+  .post(assignmentController.createAssignment);
 
 router
   .route('/:id')

@@ -39,16 +39,29 @@ fetch('./js/game/graph.json')
       foundationElement.style.gridColumnStart = x + 1;
       foundationElement.style.gridRowEnd = y + height + 1;
       foundationElement.style.gridColumnEnd = x + width + 1;
-      if (cellValue.includes('b') && !cellValue.includes('e'))
+      if (
+        cellValue.includes('b') &&
+        !cellValue.includes('e') &&
+        !cellValue.includes('s')
+      ) {
         foundationElement.classList.add('block');
+        foundationElement.innerHTML = cellValue;
+      }
       if (cellValue.includes('w') && !cellValue.includes('e'))
         foundationElement.classList.add('wall');
-      if (cellValue.includes('c') && !cellValue.includes('e'))
+      if (cellValue.includes('c') && !cellValue.includes('e')) {
         foundationElement.classList.add('charge');
-      if (cellValue.includes('p') && !cellValue.includes('e'))
+        foundationElement.innerHTML = cellValue;
+      }
+      if (cellValue.includes('p') && !cellValue.includes('e')) {
         foundationElement.classList.add('park');
-      if (cellValue.includes('l') && !cellValue.includes('e'))
+        foundationElement.innerHTML = cellValue;
+      }
+      if (cellValue.includes('l') && !cellValue.includes('e')) {
         foundationElement.classList.add('elevator');
+        foundationElement.innerHTML = cellValue;
+      }
+
       gameBoard.appendChild(foundationElement);
     }
   });

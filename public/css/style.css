@@ -4584,6 +4584,7 @@ article dl {
   display: grid;
   grid-template-rows: repeat(46, 1fr);
   grid-template-columns: repeat(46, 1fr);
+  font-size: 50%;
 }
 
 .snake {
@@ -4598,7 +4599,7 @@ article dl {
 }
 
 .park {
-  background-color: darkslategray;
+  background-color: #75768a;
   /* border: .025vmin solid black; */
   text-align: center;
 }
@@ -4610,13 +4611,13 @@ article dl {
 }
 
 .charge {
-  background-color: darkolivegreen;
+  background-color: #8a7587;
   /* border: .025vmin solid black; */
   text-align: center;
 }
 
 .elevator {
-  background-color: darkkhaki;
+  background-color: #8a7c75;
   /* border: .025vmin solid black; */
   text-align: center;
 }

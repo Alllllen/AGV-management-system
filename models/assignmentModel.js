@@ -2,12 +2,16 @@ const { Schema, model } = require('mongoose');
 
 const assignmentSchema = new Schema({
   task: { type: Schema.Types.ObjectId, ref: 'Tasks', required: true },
-  sectionStart: {
-    type: Schema.Types.ObjectId,
-    ref: 'Sections',
+  routeStart: {
+    type: String,
+    enum: ['park', 'sectionStart', 'sectionEnd', 'sectionBuffer', 'road'],
     required: true,
   },
-  sectionEnd: { type: Schema.Types.ObjectId, ref: 'Sections', required: true },
+  routeEnd: {
+    type: String,
+    enum: ['park', 'sectionStart', 'road', 'sectionBuffer', 'sectionEnd'],
+    required: true,
+  },
   agv: { type: Schema.Types.ObjectId, ref: 'Agvs', required: true },
   route: [{ type: String }],
   CreatedAt: { type: Date, required: true, default: Date.now() },
@@ -15,7 +19,7 @@ const assignmentSchema = new Schema({
     type: String,
     required: true,
     default: 'transport',
-    enum: ['transport', 'complete'],
+    enum: ['waitForExecute', 'transport', 'complete'],
   },
 });
 

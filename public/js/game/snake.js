@@ -1,14 +1,12 @@
 const snakeBody = [{ x: 0, y: 0 }];
 
 //socketio
-const clearSnake = () => {
-  const elements = document.getElementsByClassName('snake');
-  if (elements)
-    while (elements.length > 0) {
-      elements[0].parentNode.removeChild(elements[0]);
-    }
+const clearSnake = (agv) => {
+  const elements = document.getElementById(agv);
+  if (elements) elements.parentNode.removeChild(elements);
 };
-const drawSnake = (message) => {
+
+const drawSnake = (startToEnd, agv, status) => {
   const gameBoard = document.getElementById('game-board');
 
   snakeBody.forEach((segment) => {
@@ -18,33 +16,33 @@ const drawSnake = (message) => {
     snakeElement.style.gridRowEnd = segment.y + 1;
     snakeElement.style.gridColumnEnd = segment.x + 1;
     snakeElement.classList.add('snake');
+    snakeElement.id = agv;
     gameBoard.appendChild(snakeElement);
   });
 
-  const snake = document.getElementsByClassName('snake');
-  if (message[1].toString().includes('park')) {
-    for (let i = 0; i < snake.length; i++) {
-      snake[i].style.backgroundColor = 'blue';
-    }
-  } else {
-    for (let i = 0; i < snake.length; i++) {
-      snake[i].style.backgroundColor = 'red';
-    }
-  }
+  const snake = document.getElementById(agv);
+  if (startToEnd.includes('park')) snake.style.backgroundColor = 'green';
+  else snake.style.backgroundColor = 'blue';
+  if (status === 'stop') snake.style.backgroundColor = 'red';
 };
 
 const socket = io();
-socket.on('agvPosition', (message) => {
-  // addSegments();
+socket.on('agvRoute', (topic, message) => {
   message = JSON.parse(message);
 
-  snakeBody[0]['x'] = parseInt(message[0][0]) + 1;
-  snakeBody[0]['y'] = parseInt(message[0][1]) + 1;
-  console.log(snakeBody[0].x, snakeBody[0].y);
+  const startToEnd = message['startToEnd'];
+  const agv = 'agv:' + topic.split(':')[1];
+  const currentStep = message['currentStep'];
+  const status = message['status'];
+  const position = message['fullRoute'][currentStep];
 
-  clearSnake();
+  snakeBody[0]['x'] = parseInt(position[0]) + 1;
+  snakeBody[0]['y'] = parseInt(position[1]) + 1;
+  console.log(snakeBody[0]['x'], snakeBody[0]['y']);
 
-  drawSnake(message);
+  clearSnake(agv);
+
+  drawSnake(startToEnd, agv, status);
 });
 
 // export const SNAKE_SPEED = 100;
