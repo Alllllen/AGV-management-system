@@ -9,9 +9,37 @@
           |  Allen
       ul.side-menu
         li
-          a.active(href='index.html')
+          a.active(href='./')
             i.bx.bxs-dashboard.icon
             |  Dashboard
+
+        li.divider(data-text='Pages') Control
+        li
+          a(href='#')
+            i.bx.bxs-bar-chart-alt-2.icon
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Tasks
+            i.bx.bx-chevron-right.icon-right
+          ul.side-dropdown
+            li
+              a(href='auth-login.html') Task history
+            li
+              a(href='auth-register.html') Task Analysis
+            li
+              a(href='./taskControl') Task Input
+        li
+          a(href='#')
+            i.bx.bxs-meh-blank.icon
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Sensors
+            i.bx.bx-chevron-right.icon-right
+          ul.side-dropdown
+            li
+              a(href='errors-403.html') Agv
+            li
+              a(href='errors-404.html') Door & Elevator
+        li
+          a(href='credits.html')
+            i.bx.bxs-user.icon
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;User
         // Divider
         li.divider(data-text='Pages') History & Analysis
         li
@@ -38,174 +66,149 @@
           a(href='credits.html')
             i.bx.bxs-user.icon
             | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;User
+        // Divider
 
-        // Divider
-        li.divider(data-text='Pages') Control
-        li
-          a(href='#')
-            i.bx.bxs-bar-chart-alt-2.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Tasks
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='auth-login.html') Task history
-            li
-              a(href='auth-register.html') Task Analysis
-        li
-          a(href='#')
-            i.bx.bxs-meh-blank.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; Sensors
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='errors-403.html') Agv
-            li
-              a(href='errors-404.html') Door & Elevator
-        li
-          a(href='credits.html')
-            i.bx.bxs-user.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;User
 
-        // Divider
-        li.divider(data-text='STARTER') Starter
-        li
-          a(href='#')
-            i.bx.bx-columns.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Layout
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='layout-default.html') Default Layout
-            li
-              a(href='layout-top-navigation.html') Top Navigation
-        li
-          a(href='blank-pages.html')
-            i.bx.bxs-meh-blank.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Blank Page
-        li
-          a(href='#')
-            i.fa.fa-th.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Bootstrap
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='bootstrap-alert.html') Alert
-            li
-              a(href='bootstrap-badge.html') Badge
-            li
-              a(href='bootstrap-breadcrumb.html') Breadcrumb
-            li
-              a(href='bootstrap-buttons.html') Buttons
-            li
-              a(href='bootstrap-card.html') Card
-            li
-              a(href='bootstrap-carousel.html') Carousel
-            li
-              a(href='bootstrap-dropdown.html') Dropdown
-            li
-              a(href='bootstrap-list-group.html') List Group
-            li
-              a(href='bootstrap-modal.html') Modal
-            li
-              a(href='bootstrap-nav.html') Navs
-            li
-              a(href='bootstrap-pagination.html') Pagination
-            li
-              a(href='bootstrap-progress.html') Progress
-            li
-              a(href='bootstrap-spinner.html') Spinner
-        // Divider
-        li.divider(data-text='Atrana') Atrana
-        li
-          a(href='#')
-            i.bx.bx-columns.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Components
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='component-avatar.html') Avatar
-            li
-              a(href='component-toastify.html') Toastify
-            li
-              a(href='component-sweet-alert.html') Sweet Alert
-            li
-              a(href='component-hero.html') Hero
-        li
-          a(href='#')
-            i.bx.bxs-notepad.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Forms
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='forms-editor.html') Editor
-            li
-              a(href='forms-validation.html') Validation
-            li
-              a(href='forms-checkbox.html') Checkbox
-            li
-              a(href='forms-radio.html') Radio
-        li
-          a(href='#')
-            i.bx.bxs-widget.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Widgets
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='widgets-chatboxs.html') ChatBox
-            li
-              a(href='widgets-email.html') Emails
-            li
-              a(href='widgets-pricing.html') Pricing
-        li
-          a(href='#')
-            i.bx.bxs-bar-chart-alt-2.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Charts
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='chart-chartjs.html') ChartJS
-            li
-              a(href='chart-apexcharts.html') Apexcharts
-        li
-          a(href='#')
-            i.bx.bxs-cloud-rain.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Icons
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='icons-fontawesome.html') Fontawesome
-            li
-              a(href='icons-boostrap.html') Bootstrap Icons
-        // Divider
-        li.divider(data-text='Pages') Pages
-        li
-          a(href='#')
-            i.bx.bxs-user.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Auth
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='auth-login.html') Login
-            li
-              a(href='auth-register.html') Register
-            li
-              a(href='auth-forgot-password.html') Forgot Password
-            li
-              a(href='auth-reset-password.html') Reset Password
-        li
-          a(href='#')
-            i.bx.bxs-error.icon
-            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Errors
-            i.bx.bx-chevron-right.icon-right
-          ul.side-dropdown
-            li
-              a(href='errors-403.html') 403
-            li
-              a(href='errors-404.html') 404
-            li
-              a(href='errors-500.html') 500
-            li
-              a(href='errors-503.html') 503
+        //- // Divider
+        //- li.divider(data-text='STARTER') Starter
+        //- li
+        //-   a(href='#')
+        //-     i.bx.bx-columns.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Layout
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='layout-default.html') Default Layout
+        //-     li
+        //-       a(href='layout-top-navigation.html') Top Navigation
+        //- li
+        //-   a(href='blank-pages.html')
+        //-     i.bx.bxs-meh-blank.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Blank Page
+        //- li
+        //-   a(href='#')
+        //-     i.fa.fa-th.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Bootstrap
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='bootstrap-alert.html') Alert
+        //-     li
+        //-       a(href='bootstrap-badge.html') Badge
+        //-     li
+        //-       a(href='bootstrap-breadcrumb.html') Breadcrumb
+        //-     li
+        //-       a(href='bootstrap-buttons.html') Buttons
+        //-     li
+        //-       a(href='bootstrap-card.html') Card
+        //-     li
+        //-       a(href='bootstrap-carousel.html') Carousel
+        //-     li
+        //-       a(href='bootstrap-dropdown.html') Dropdown
+        //-     li
+        //-       a(href='bootstrap-list-group.html') List Group
+        //-     li
+        //-       a(href='bootstrap-modal.html') Modal
+        //-     li
+        //-       a(href='bootstrap-nav.html') Navs
+        //-     li
+        //-       a(href='bootstrap-pagination.html') Pagination
+        //-     li
+        //-       a(href='bootstrap-progress.html') Progress
+        //-     li
+        //-       a(href='bootstrap-spinner.html') Spinner
+        //- // Divider
+        //- li.divider(data-text='Atrana') Atrana
+        //- li
+        //-   a(href='#')
+        //-     i.bx.bx-columns.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Components
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='component-avatar.html') Avatar
+        //-     li
+        //-       a(href='component-toastify.html') Toastify
+        //-     li
+        //-       a(href='component-sweet-alert.html') Sweet Alert
+        //-     li
+        //-       a(href='component-hero.html') Hero
+        //- li
+        //-   a(href='#')
+        //-     i.bx.bxs-notepad.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Forms
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='forms-editor.html') Editor
+        //-     li
+        //-       a(href='forms-validation.html') Validation
+        //-     li
+        //-       a(href='forms-checkbox.html') Checkbox
+        //-     li
+        //-       a(href='forms-radio.html') Radio
+        //- li
+        //-   a(href='#')
+        //-     i.bx.bxs-widget.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Widgets
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='widgets-chatboxs.html') ChatBox
+        //-     li
+        //-       a(href='widgets-email.html') Emails
+        //-     li
+        //-       a(href='widgets-pricing.html') Pricing
+        //- li
+        //-   a(href='#')
+        //-     i.bx.bxs-bar-chart-alt-2.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Charts
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='chart-chartjs.html') ChartJS
+        //-     li
+        //-       a(href='chart-apexcharts.html') Apexcharts
+        //- li
+        //-   a(href='#')
+        //-     i.bx.bxs-cloud-rain.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Icons
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='icons-fontawesome.html') Fontawesome
+        //-     li
+        //-       a(href='icons-boostrap.html') Bootstrap Icons
+        //- // Divider
+        //- li.divider(data-text='Pages') Pages
+        //- li
+        //-   a(href='#')
+        //-     i.bx.bxs-user.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Auth
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='auth-login.html') Login
+        //-     li
+        //-       a(href='auth-register.html') Register
+        //-     li
+        //-       a(href='auth-forgot-password.html') Forgot Password
+        //-     li
+        //-       a(href='auth-reset-password.html') Reset Password
+        //- li
+        //-   a(href='#')
+        //-     i.bx.bxs-error.icon
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Errors
+        //-     i.bx.bx-chevron-right.icon-right
+        //-   ul.side-dropdown
+        //-     li
+        //-       a(href='errors-403.html') 403
+        //-     li
+        //-       a(href='errors-404.html') 404
+        //-     li
+        //-       a(href='errors-500.html') 500
+        //-     li
+        //-       a(href='errors-503.html') 503
         li
           a(href='credits.html')
             i.fa.fa-pencil-ruler.icon
@@ -216,7 +219,7 @@
             i.fa.fa-circle-question.fa-3x
           p
             | Need Help with 
-            strong Atrana
+            strong Allen
             | ?
           a.btn-upgrade(href='docs/') Documentation
 .sidebar-overlay
