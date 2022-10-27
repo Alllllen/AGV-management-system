@@ -679,6 +679,16 @@ a {
   background-color: #454546;
   color: #fff;
   box-shadow: 1px 2px 9px rgba(69, 69, 70, 0.3);
+
+  position: fixed;
+  z-index: 99; /* so that the div stays on top of others */
+  /* top: 50px; */
+  /* height: 400px; */
+  /* width: 400px;  */
+
+  /* To center the box */
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 .alert-dark a {
   color: #fff;
