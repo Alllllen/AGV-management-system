@@ -4492,6 +4492,7 @@ textarea.form-control-lg {
   min-width: 0;
   word-wrap: break-word;
   background-clip: border-box;
+  height:100%
 }
 .card > hr {
   margin-right: 0;

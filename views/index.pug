@@ -7,8 +7,9 @@ block content
     .content-header
       h1 Dashboard
       p
+
     .row
-      .col-md-12
+      .col-md-6
         .card
           .card-header
             h4 AGV-STATUS
@@ -21,7 +22,64 @@ block content
               #progress3
             .mt-4
               #progress4
-              
+      .col-md-6
+        .card
+          .card-header
+            h4 Latest Transaction
+          .card-body
+            .table-responsive
+              table.table.table-striped
+                thead
+                  tr
+                    th(scope='col') Order Id
+                    th(scope='col') Billing Name
+                    th(scope='col') Date
+                    th(scope='col') Total
+                    th(scope='col') Payment Status
+                    th(scope='col') Payment Method
+                    th(scope='col') View Details
+                tbody
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-success Paid
+                    td Mastercard
+                    td
+                      button.btn.btn-primary View Details
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-danger Chargeback
+                    td Paypal
+                    td
+                      button.btn.btn-primary View Details
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-danger Chargeback
+                    td Paypal
+                    td
+                      button.btn.btn-primary View Details                      
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-warning Refund
+                    td Visa
+                    td
+                      button.btn.btn-primary View Details
+           
       .col-md-12
         .card
           .card-header
@@ -97,60 +155,3 @@ block content
               button.btn.btn-block.btn-xl.btn-primary.font-bold.mt-3
                 | Start
                 | Conversation
-      .col-md-12
-        .card
-          .card-header
-            h4 Latest Transaction
-          .card-body
-            .table-responsive
-              table.table.table-striped
-                thead
-                  tr
-                    th(scope='col') Order Id
-                    th(scope='col') Billing Name
-                    th(scope='col') Date
-                    th(scope='col') Total
-                    th(scope='col') Payment Status
-                    th(scope='col') Payment Method
-                    th(scope='col') View Details
-                tbody
-                  tr
-                    th(scope='row') #SK2548 
-                    td Neal Matthews
-                    td 07 Oct, 2022
-                    td $400
-                    td
-                      span.text-success Paid
-                    td Mastercard
-                    td
-                      button.btn.btn-primary View Details
-                  tr
-                    th(scope='row') #SK2548 
-                    td Neal Matthews
-                    td 07 Oct, 2022
-                    td $400
-                    td
-                      span.text-success Paid
-                    td Visa
-                    td
-                      button.btn.btn-primary View Details
-                  tr
-                    th(scope='row') #SK2548 
-                    td Neal Matthews
-                    td 07 Oct, 2022
-                    td $400
-                    td
-                      span.text-danger Chargeback
-                    td Paypal
-                    td
-                      button.btn.btn-primary View Details
-                  tr
-                    th(scope='row') #SK2548 
-                    td Neal Matthews
-                    td 07 Oct, 2022
-                    td $400
-                    td
-                      span.text-warning Refund
-                    td Visa
-                    td
-                      button.btn.btn-primary View Details
