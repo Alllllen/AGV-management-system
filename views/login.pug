@@ -22,13 +22,13 @@ head
             |  Allen
         h1.auth-title Log in.
         p.auth-subtitle.mb-5 Log in with your data that you entered during registration.
-        form(action='index.html')
+        form.loginForm
           .form-group.position-relative.has-icon-left.mb-4
-            input.form-control.form-control-xl(type='text' placeholder='Username')
+            input#email.form-control.form-control-xl(type='text' placeholder='Email')
             .form-control-icon
               i.bi.bi-person
           .form-group.position-relative.has-icon-left.mb-4
-            input.form-control.form-control-xl(type='password' placeholder='Password')
+            input#password.form-control.form-control-xl(type='password' placeholder='Password')
             .form-control-icon
               i.bi.bi-shield-lock
           .form-check.form-check-lg.d-flex.align-items-end
@@ -55,3 +55,5 @@ script(src='/modules/popper/popper.min.js')
 // Template JS File
 script(src='/js/script.js')
 script(src='/js/custom.js')
+//axios
+script(src='/js/bundle.js')
