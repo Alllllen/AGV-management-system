@@ -1,9 +1,10 @@
 const Block = require('./../models/foundations/blockModel');
 const Section = require('./../models/foundations/sectionModel');
+const Elevator = require('./../models/foundations/elevatorModel');
+const Door = require('./../models/foundations/doorModel');
 const Charge = require('./../models/foundations/chargeModel');
 const Park = require('./../models/foundations/parkModel');
 const Wall = require('./../models/foundations/wallModel');
-const Sensor = require('./../models/foundations/sensorModel');
 const Vertex = require('./../models/foundations/vertexModel');
 const GuidePath = require('./../models/foundations/guidePathModel');
 
@@ -80,6 +81,7 @@ const getEntry = (key, foundations) => {
   }
   return foundationEntrys;
 };
+
 const saveWall = catchAsync(async () => {
   let foundations = getFoundation('w', 'e'); //{}
 
@@ -103,9 +105,8 @@ const saveElevator = catchAsync(async () => {
 
   //save data
   for (let i in foundations) {
-    await Sensor.create({
+    await Elevator.create({
       name: i,
-      type: 'elevator',
       startX: foundationEntrys[i].startX,
       startY: foundationEntrys[i].startY,
       endX: foundationEntrys[i].endX,
@@ -117,6 +118,65 @@ const saveElevator = catchAsync(async () => {
     });
   }
   console.log('save elevator');
+});
+const saveDoor = catchAsync(async () => {
+  const foundations = getFoundation('d', 'e'); //{}
+
+  //save data
+  for (let i in foundations) {
+    //find extry of the door (1 door 4 entry point)
+    const entrys = [];
+    if (foundations[i].startX + 1 === foundations[i].end) {
+      //door is 橫的
+      entrys.push({
+        entryX: foundations[i].startX,
+        entryY: foundations[i].startY + 1,
+      });
+      entrys.push({
+        entryX: foundations[i].startX,
+        entryY: foundations[i].startY - 1,
+      });
+      entrys.push({
+        entryX: foundations[i].endX,
+        entryY: foundations[i].endY + 1,
+      });
+      entrys.push({
+        entryX: foundations[i].endX,
+        entryY: foundations[i].endY - 1,
+      });
+    } else {
+      //door is 直的
+      entrys.push({
+        entryX: foundations[i].startX + 1,
+        entryY: foundations[i].startY,
+      });
+      entrys.push({
+        entryX: foundations[i].startX - 1,
+        entryY: foundations[i].startY,
+      });
+      entrys.push({
+        entryX: foundations[i].endX + 1,
+        entryY: foundations[i].endY,
+      });
+      entrys.push({
+        entryX: foundations[i].endX - 1,
+        entryY: foundations[i].endY,
+      });
+    }
+
+    await Door.create({
+      name: i,
+      startX: foundations[i].startX,
+      startY: foundations[i].startY,
+      endX: foundations[i].endX,
+      endY: foundations[i].endY,
+      entries: entrys,
+      z: foundations[i].z,
+      status: 'close',
+    });
+  }
+
+  console.log('save Door');
 });
 const saveCharge = catchAsync(async () => {
   let foundations = getFoundation('c', 'e'); //{}
@@ -434,7 +494,8 @@ exports.clearFounds = () => {
       await Vertex.deleteMany({});
       await GuidePath.deleteMany({});
       await Wall.deleteMany({});
-      await Sensor.deleteMany({});
+      await Elevator.deleteMany({});
+      await Door.deleteMany({});
       await Charge.deleteMany({});
       await Park.deleteMany({});
       console.log('clear Found data');
@@ -448,6 +509,7 @@ exports.setFounds = () => {
     catchAsync(async (resolve, reject) => {
       saveWall();
       saveElevator();
+      saveDoor();
       saveCharge();
       savePark();
 

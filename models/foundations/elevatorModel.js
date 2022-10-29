@@ -1,12 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const sensorSchema = new Schema({
-  type: {
-    type: String,
-    required: true,
-    enum: ['elevator', 'airShowerDoor', 'AutimaticDoor', 'Warnlight'],
-    default: 'elevator',
-  },
+const elevatorSchema = new Schema({
   name: String,
   startX: { type: Number, required: true },
   startY: { type: Number, required: true },
@@ -18,5 +12,5 @@ const sensorSchema = new Schema({
   status: { type: String, required: true }, //電梯狀態：idleFloor, active //電動門狀態： close, open
 });
 
-const Sensor = model('Sensors', sensorSchema);
-module.exports = Sensor;
+const Elevator = model('Elevators', elevatorSchema);
+module.exports = Elevator;

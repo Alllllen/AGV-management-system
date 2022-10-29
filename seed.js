@@ -17,8 +17,8 @@ mongoose
   .then(async (db) => {
     console.log('MongoDB Atlas connected');
 
-    // await foundSeed.clearFounds();
-    // await foundSeed.setFounds();
+    await foundSeed.clearFounds();
+    await foundSeed.setFounds();
 
     await agvSeed.clearAgv();
     await agvSeed.setAgv();

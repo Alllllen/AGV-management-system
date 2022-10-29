@@ -47,8 +47,7 @@ fetch('./js/game/graph.json')
         foundationElement.classList.add('block');
         foundationElement.innerHTML = cellValue;
       }
-      if (cellValue.includes('w') && !cellValue.includes('e'))
-        foundationElement.classList.add('wall');
+      if (cellValue.includes('w')) foundationElement.classList.add('wall');
       if (cellValue.includes('c') && !cellValue.includes('e')) {
         foundationElement.classList.add('charge');
         foundationElement.innerHTML = cellValue;
@@ -59,6 +58,10 @@ fetch('./js/game/graph.json')
       }
       if (cellValue.includes('l') && !cellValue.includes('e')) {
         foundationElement.classList.add('elevator');
+        foundationElement.innerHTML = cellValue;
+      }
+      if (cellValue.includes('d')) {
+        foundationElement.classList.add('door');
         foundationElement.innerHTML = cellValue;
       }
 

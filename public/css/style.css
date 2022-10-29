@@ -4631,6 +4631,11 @@ article dl {
   /* border: .025vmin solid black; */
   text-align: center;
 }
+.door {
+  /* background-color: #8a7c75; */
+  border: 0.3vmin solid black;
+  text-align: center;
+}
 
 @keyframes growIn {
   0% {
