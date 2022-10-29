@@ -11,5 +11,8 @@ router.get('/login', (req, res) => {
 router.get('/register', (req, res) => {
   res.status(200).render('register', { title: 'register' });
 });
+router.get('/taskControl', (req, res) => {
+  res.status(200).render('taskControl', { title: 'task' });
+});
 
 module.exports = router;
