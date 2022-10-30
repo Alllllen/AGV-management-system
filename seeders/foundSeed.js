@@ -126,7 +126,7 @@ const saveDoor = catchAsync(async () => {
   for (let i in foundations) {
     //find extry of the door (1 door 4 entry point)
     const entrys = [];
-    if (foundations[i].startX + 1 === foundations[i].end) {
+    if (foundations[i].startX + 1 === foundations[i].endX) {
       //door is 橫的
       entrys.push({
         entryX: foundations[i].startX,
