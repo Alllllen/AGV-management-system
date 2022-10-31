@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - /var/lib/docker/volumes/redis/_data:/data/redis
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - /var/lib/docker/volumes/mongo/_data:/data/mongo

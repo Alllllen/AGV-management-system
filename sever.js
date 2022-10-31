@@ -3,16 +3,19 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const mongoose = require('mongoose');
 
-//dataBase
-const DB = process.env.DATABASE.replace(
-  '<password>',
-  process.env.DATABASE_PASSWORD
-);
+//dataBase (atlas)
+// const DB = process.env.DATABASE.replace(
+//   '<password>',
+//   process.env.DATABASE_PASSWORD
+// );
+
+// database(local)
+const DB = 'mongodb://root:password@localhost:27017/agv?authSource=admin';
 mongoose
-  .connect(DB)
+  .connect(DB, { useNewUrlParser: true })
   .then(() => console.log('MongoDB Atlas connected'))
   .catch((err) => {
-    console.log(err.message);
+    console.log(err);
   });
 
 //server
@@ -46,7 +49,7 @@ setTimeout(async () => {
 
 //發出一個assinment(測試用)
 
-// Generate
+// // Generate
 // setTimeout(async () => {
 //   await Agv.updateMany({ status: 'transport' }, { status: 'park' });
 //   const tasks = await Task.aggregate([{ $limit: 5 }]);
@@ -114,10 +117,13 @@ io.on('connection', (socket) => {
   client.on('message', async (topic, message) => {
     if (topic.includes('route'))
       socket.emit('agvRoute', topic, message.toString());
-    if (topic.includes('status')) {
-      // console.log(message.toString());
+    if (topic.includes('status'))
       socket.emit('doorStatus', topic, message.toString());
-    }
-    // console.log(`sent route via ws`);
   });
+});
+
+const redis = require('redis');
+const redisClient = redis.createClient(6379); // this creates a new client
+redisClient.on('connect', () => {
+  console.log('Redis client connected');
 });
