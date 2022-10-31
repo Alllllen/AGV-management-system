@@ -24,6 +24,7 @@ const server = app.listen(process.env.PORT || 8080, () => {
 const mqtt = require('mqtt');
 const client = mqtt.connect('mqtt://localhost:1883');
 const Agv = require('./models/agvModel');
+const Door = require('./models/foundations/doorModel');
 const Task = require('./models/taskModel');
 const Assignment = require('./models/assignmentModel');
 const assignmentController = require('./controllers/assignmentController');
@@ -31,12 +32,16 @@ const assignmentController = require('./controllers/assignmentController');
 //find all agvs set subscribe && publish to agvs client(let it set subscribe)
 setTimeout(async () => {
   const agvs = await Agv.find({});
-  client.publish('allAgvs', JSON.stringify(agvs));
+  const doors = await Door.find({});
 
-  for (let i = 0; i < agvs.length; i++) {
-    client.subscribe(`agv:${agvs[i]._id}:route`); //return route, startToEnd, agvID
-    client.subscribe(`agv:${agvs[i]._id}:complete`);
+  client.publish('allAgvs', JSON.stringify(agvs));
+  client.publish('allDoors', JSON.stringify(doors));
+
+  for (let agv of agvs) {
+    client.subscribe(`agv:${agv['_id']}:route`); //return route, startToEnd, agvID
+    client.subscribe(`agv:${agv['_id']}:complete`);
   }
+  for (let door of doors) client.subscribe(`door:${door['_id']}:status`);
 }, 3000);
 
 //發出一個assinment(測試用)
@@ -76,7 +81,7 @@ setTimeout(async () => {
       );
     }, i * 950);
   }
-}, 3000);
+}, 5000);
 
 //如果車子抵達一個assingment的目的地   (接收 assingment complete via MQTT)
 client.on('message', async (topic, message) => {
@@ -103,13 +108,16 @@ client.on('message', async (topic, message) => {
   }
 });
 
-//sock.io && 接收assignmentPosition回傳
+//sock.io && 接收 assignmentPosition 回傳
 const io = require('socket.io')(server, { cookie: true });
 io.on('connection', (socket) => {
   client.on('message', async (topic, message) => {
-    if (topic.includes('route')) {
+    if (topic.includes('route'))
       socket.emit('agvRoute', topic, message.toString());
-      // console.log(`sent route via ws`);
+    if (topic.includes('status')) {
+      // console.log(message.toString());
+      socket.emit('doorStatus', topic, message.toString());
     }
+    // console.log(`sent route via ws`);
   });
 });

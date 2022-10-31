@@ -3,7 +3,8 @@ const gameBoard = document.getElementById('game-board');
 fetch('./js/game/graph.json')
   .then((response) => response.json())
   .then((jsonData) => {
-    console.log('input success');
+    console.log('Map successfully loaded');
+
     const fetchData = (CellMxGeometry) => {
       let x = CellMxGeometry['x'] ? CellMxGeometry['x'] : 0;
       let y = CellMxGeometry['y'] ? CellMxGeometry['y'] : 0;
@@ -50,18 +51,22 @@ fetch('./js/game/graph.json')
       if (cellValue.includes('w')) foundationElement.classList.add('wall');
       if (cellValue.includes('c') && !cellValue.includes('e')) {
         foundationElement.classList.add('charge');
+        foundationElement.id = cellValue;
         foundationElement.innerHTML = cellValue;
       }
       if (cellValue.includes('p') && !cellValue.includes('e')) {
         foundationElement.classList.add('park');
+        foundationElement.id = cellValue;
         foundationElement.innerHTML = cellValue;
       }
       if (cellValue.includes('l') && !cellValue.includes('e')) {
         foundationElement.classList.add('elevator');
+        foundationElement.id = cellValue;
         foundationElement.innerHTML = cellValue;
       }
       if (cellValue.includes('d')) {
         foundationElement.classList.add('door');
+        foundationElement.id = cellValue;
         foundationElement.innerHTML = cellValue;
       }
 

@@ -45,6 +45,20 @@ socket.on('agvRoute', (topic, message) => {
   drawSnake(startToEnd, agv, status);
 });
 
+socket.on('doorStatus', (topic, message) => {
+  message = JSON.parse(message);
+
+  // const key = 'door:' + topic.split(':')[1];
+  const door = document.getElementById(message['name']);
+  if (message['status'] === 'open') {
+    console.log(door, 'open');
+    door.style.backgroundColor = 'transparent';
+  }
+  if (message['status'] === 'close') {
+    door.style.backgroundColor = '#1f1b1a';
+  }
+});
+
 // export const SNAKE_SPEED = 100;
 
 // import { getInputDirection } from './input.js';
