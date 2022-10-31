@@ -126,7 +126,7 @@ const saveDoor = catchAsync(async () => {
   for (let i in foundations) {
     //find extry of the door (1 door 4 entry point)
     const entrys = [];
-    if (foundations[i].startX + 1 === foundations[i].endX) {
+    if (foundations[i].startX + 2 === foundations[i].endX) {
       //door is 橫的
       entrys.push({
         entryX: foundations[i].startX,
@@ -137,12 +137,12 @@ const saveDoor = catchAsync(async () => {
         entryY: foundations[i].startY - 1,
       });
       entrys.push({
-        entryX: foundations[i].endX,
-        entryY: foundations[i].endY + 1,
+        entryX: foundations[i].startX + 1,
+        entryY: foundations[i].startY + 1,
       });
       entrys.push({
-        entryX: foundations[i].endX,
-        entryY: foundations[i].endY - 1,
+        entryX: foundations[i].startX + 1,
+        entryY: foundations[i].startY - 1,
       });
     } else {
       //door is 直的
@@ -155,12 +155,12 @@ const saveDoor = catchAsync(async () => {
         entryY: foundations[i].startY,
       });
       entrys.push({
-        entryX: foundations[i].endX + 1,
-        entryY: foundations[i].endY,
+        entryX: foundations[i].startX + 1,
+        entryY: foundations[i].startY + 1,
       });
       entrys.push({
-        entryX: foundations[i].endX - 1,
-        entryY: foundations[i].endY,
+        entryX: foundations[i].startX - 1,
+        entryY: foundations[i].startY + 1,
       });
     }
 
