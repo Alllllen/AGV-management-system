@@ -13,7 +13,16 @@ const blockSchema = new Schema({
   endX: { type: Number, required: true },
   endY: { type: Number, required: true },
   z: { type: Number, required: true },
-  sections: [{ type: Schema.Types.ObjectId, ref: 'sections', required: true }],
+  sections: [{ type: Schema.Types.ObjectId, ref: 'Sections', required: true }],
+});
+
+blockSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'sections',
+    select: 'name',
+  });
+
+  next();
 });
 
 const Block = model('Blocks', blockSchema);
