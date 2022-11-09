@@ -69,6 +69,7 @@ const chooseAgv = (graph, sectionStart, taskId) => {
         task: taskId,
         routeStart: 'park',
         routeEnd: 'sectionStart',
+        z: sectionStart['z'],
         agv: agvId,
         route: minPath,
       });
@@ -95,6 +96,7 @@ const sectionToSection = (graph, sectionFrom, sectionTo, taskId, agvId) => {
         task: taskId,
         routeStart: 'sectionStart',
         routeEnd: 'sectionEnd',
+        z: sectionFrom['z'],
         status: 'waitForExecute',
         agv: agvId,
         route: minPath,
@@ -183,6 +185,7 @@ exports.createToParkAssignment = (taskId, agvId) => {
         task: taskId,
         routeStart: 'sectionEnd',
         routeEnd: 'park',
+        z: sectionEnd['z'],
         status: 'transport',
         agv: agvId,
         route: minPath,

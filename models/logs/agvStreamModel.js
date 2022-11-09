@@ -15,5 +15,5 @@ const agvStreamSchema = new Schema({
   z: { type: Number, required: true },
 });
 
-const Agv = model('Agvs', agvSchema);
-module.exports = Agv;
+const AgvStream = model('AgvStreams', agvStreamSchema);
+module.exports = AgvStream;

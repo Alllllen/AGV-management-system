@@ -27,35 +27,48 @@ const drawSnake = (startToEnd, agv, status) => {
 };
 
 const socket = io();
-socket.on('agvRoute', (topic, message) => {
+const client = mqtt.connect({ host: 'localhost', port: 8883, protocol: 'ws' });
+// client.on('connect', () => console.log('MQTT connected!'));
+
+socket.on('complete', (topic) => {
+  const agv = 'agv:' + topic.split(':')[1];
+  clearSnake(agv);
+});
+socket.on('parkNum', (message) => {
   message = JSON.parse(message);
 
-  const startToEnd = message['startToEnd'];
-  const agv = 'agv:' + topic.split(':')[1];
-  const currentStep = message['currentStep'];
-  const status = message['status'];
-  const position = message['fullRoute'][currentStep];
-
-  snakeBody[0]['x'] = parseInt(position[0]) + 1;
-  snakeBody[0]['y'] = parseInt(position[1]) + 1;
-  console.log(snakeBody[0]['x'], snakeBody[0]['y']);
-
-  clearSnake(agv);
-
-  drawSnake(startToEnd, agv, status);
+  for (let park in message) {
+    const parkElement = document.getElementById(park);
+    parkElement.innerHTML = park + ': ' + message[park];
+  }
 });
 
-socket.on('doorStatus', (topic, message) => {
-  message = JSON.parse(message);
+socket.on('subscribeMqtt', (message) => client.subscribe(message));
 
-  // const key = 'door:' + topic.split(':')[1];
-  const door = document.getElementById(message['name']);
-  if (message['status'] === 'open') {
-    console.log(door, 'open');
-    door.style.backgroundColor = 'transparent';
+client.on('message', function (topic, message) {
+  message = JSON.parse(message);
+  if (topic.includes('door')) {
+    const door = document.getElementById(message['name']);
+    if (message['status'] === 'open')
+      door.style.backgroundColor = 'transparent';
+
+    if (message['status'] === 'close') door.style.backgroundColor = '#1f1b1a';
   }
-  if (message['status'] === 'close') {
-    door.style.backgroundColor = '#1f1b1a';
+
+  if (topic.includes('route')) {
+    const startToEnd = message['startToEnd'];
+    const agv = 'agv:' + topic.split(':')[1];
+    const currentStep = message['currentStep'];
+    const status = message['status'];
+    const position = message['fullRoute'][currentStep];
+
+    snakeBody[0]['x'] = parseInt(position[0]) + 1;
+    snakeBody[0]['y'] = parseInt(position[1]) + 1;
+    // console.log(snakeBody[0]['x'], snakeBody[0]['y']);
+
+    clearSnake(agv);
+
+    drawSnake(startToEnd, agv, status);
   }
 });
 
