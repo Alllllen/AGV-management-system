@@ -73,7 +73,6 @@ fetch('./js/game/graph.json')
       gameBoard.appendChild(foundationElement);
     }
   });
-
 // import {
 //   update as updateSnake,
 //   draw as drawSnake,

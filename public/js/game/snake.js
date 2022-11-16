@@ -46,7 +46,7 @@ socket.on('parkNum', (message) => {
 socket.on('subscribeMqtt', (message) => client.subscribe(message));
 client.on('message', function (topic, message) {
   message = JSON.parse(message);
-  console.log(topic);
+  // console.log(topic);
   if (topic.includes('door')) {
     const door = document.getElementById(message['name']);
     if (message['status'] === 'open')
@@ -70,6 +70,17 @@ client.on('message', function (topic, message) {
 
     drawSnake(startToEnd, agv, status);
   }
+});
+
+socket.on('agv:status', (message) => {
+  message = JSON.parse(message);
+  console.log(message);
+  let agvStatusElement = document.getElementById('agvStatusPark');
+  agvStatusElement.innerHTML = message[0];
+  agvStatusElement = document.getElementById('agvStatusTransport');
+  agvStatusElement.innerHTML = message[1];
+  agvStatusElement = document.getElementById('agvStatusCharge');
+  agvStatusElement.innerHTML = message[2];
 });
 
 // export const SNAKE_SPEED = 100;

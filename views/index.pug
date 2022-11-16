@@ -23,7 +23,7 @@ block content
                         i.fas.fa-running.icon-home.bg-info.text-light
                       .col-8
                         p Transport
-                        h5 50
+                        h5#agvStatusTransport 0
               .col-md-6.col-lg-6
                 .card
                   .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
@@ -32,7 +32,7 @@ block content
                         i.fas.fa-gas-pump.icon-home.bg-warning.text-light
                       .col-8
                         p Charge
-                        h5 30
+                        h5#agvStatusCharge 0
               .col-md-6.col-lg-6
                 .card
                   .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
@@ -41,7 +41,7 @@ block content
                         i.fas.fa-warning.icon-home.bg-danger.text-light
                       .col-8
                         p Malfuncation
-                        h5 30
+                        h5#agvStatusMalfunction 0
               .col-md-6.col-lg-6
                 .card
                   .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
@@ -49,8 +49,8 @@ block content
                       .col-4.d-flex.align-items-center
                         i.fas.fa-square-parking.icon-home.bg-success.text-light
                       .col-8
-                        p Park + Back
-                        h5 60
+                        p Park
+                        h5#agvStatusPark 0
     
       .col-md-12.col-lg-6
         .card
