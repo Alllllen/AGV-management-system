@@ -27,11 +27,11 @@ exports.mqttClient = (server) => {
     socketEmit = async (...args) => socket.emit(...args);
   });
 
-  // testFromMqtt();
-  // preload(io);
+  preload(io);
   // testEmitAssingment(io);
   // testGenData();
   // testDbSpeed();
+  // testFromMqtt();
 
   client.on('message', async (topic, message) => {
     // 如果車子抵達一個assingment的目的地   (接收 assingment complete via MQTT)
@@ -157,6 +157,46 @@ const preload = (io) => {
     }
   }, 2000);
 };
+const testEmitAssingment = (io) => {
+  // Get;
+  setTimeout(async () => {
+    console.log('sent assignment');
+    const assignments = await Assignment.aggregate([
+      { $group: { _id: '$task', datas: { $push: '$$ROOT' } } },
+    ]);
+    for (let i = 0; i < assignments.length; i++) {
+      setTimeout(async () => {
+        client.publish(
+          `agv:${assignments[i]['datas'][0]['agv']}:assignment`,
+          JSON.stringify(assignments[i]['datas'])
+        );
+
+        // agvPositin change
+        // const updateAgv = await Agv.updateById(agvId, {
+        //   entryX: endPosition[0],
+        //   entryY: endPosition[1],
+        //   z: message['z'],
+        // });
+
+        // park:name:number in redis change
+        const parkName = await redis.hget(
+          'park:entryPosition',
+          JSON.stringify({
+            x: Number(assignments[i]['datas'][0]['route'][0].split(',')[0]),
+            y: Number(assignments[i]['datas'][0]['route'][0].split(',')[1]),
+            z: Number(assignments[i]['datas'][0]['z']),
+          })
+        );
+        await redis.hincrby('park:num', parkName, -1);
+
+        // socketio park
+        const parkNum = await redis.hgetall('park:num');
+        io.emit('parkNum', JSON.stringify(parkNum));
+      }, i * 950);
+    }
+  }, 4000);
+};
+
 const testFromMqtt = () => {
   client.subscribe('test');
   let testNum = 0;
@@ -168,14 +208,12 @@ const testFromMqtt = () => {
       }
       testNum++;
       // console.log(testNum);
-      if (testNum === 200000) {
-        console.log('good');
+      if (testNum === 500000) {
         console.timeEnd('fromMqtt');
       }
     }
   });
 };
-
 const testDbSpeed = () => {
   // test mongodb && redis write speed
   setTimeout(async () => {
@@ -222,43 +260,4 @@ const testGenData = () => {
       console.log(res.status);
     }
   }, 3000);
-};
-const testEmitAssingment = (io) => {
-  // Get;
-  setTimeout(async () => {
-    console.log('sent assignment');
-    const assignments = await Assignment.aggregate([
-      { $group: { _id: '$task', datas: { $push: '$$ROOT' } } },
-    ]);
-    for (let i = 0; i < assignments.length; i++) {
-      setTimeout(async () => {
-        client.publish(
-          `agv:${assignments[i]['datas'][0]['agv']}:assignment`,
-          JSON.stringify(assignments[i]['datas'])
-        );
-
-        // agvPositin change
-        // const updateAgv = await Agv.updateById(agvId, {
-        //   entryX: endPosition[0],
-        //   entryY: endPosition[1],
-        //   z: message['z'],
-        // });
-
-        // park:name:number in redis change
-        const parkName = await redis.hget(
-          'park:entryPosition',
-          JSON.stringify({
-            x: Number(assignments[i]['datas'][0]['route'][0].split(',')[0]),
-            y: Number(assignments[i]['datas'][0]['route'][0].split(',')[1]),
-            z: Number(assignments[i]['datas'][0]['z']),
-          })
-        );
-        await redis.hincrby('park:num', parkName, -1);
-
-        // socketio park
-        const parkNum = await redis.hgetall('park:num');
-        io.emit('parkNum', JSON.stringify(parkNum));
-      }, i * 950);
-    }
-  }, 4000);
 };

@@ -49,7 +49,7 @@ exports.updateOne = (Model) =>
 
 exports.createOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
     const doc = await Model.create(req.body);
 
     res.status(201).json({
@@ -67,7 +67,7 @@ exports.getOne = (Model, popOptions) =>
     //redis search
     // const doc = await getOrSetCache(`${req.originalUrl}`, query);
     const doc = await query;
-    console.log(doc);
+    // console.log(doc);
     if (!doc) {
       return next(new AppError('No document found with that ID', 404));
     }

@@ -317,7 +317,7 @@ var barOptions = {
     },
     {
       name: 'Free Cash Flow',
-      data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+      data: [35, 41, 36, 26, 45, 48],
     },
   ],
   chart: {

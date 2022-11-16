@@ -24,12 +24,13 @@ export const login = async (email, password) => {
   }
 };
 
-export const regist = async (email, password) => {
+export const regist = async (name, email, password) => {
   try {
     const res = await axios({
       method: 'POST',
       url: '/api/v1/user/signup',
       data: {
+        name,
         email,
         password,
       },

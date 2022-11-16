@@ -28,7 +28,7 @@ const drawSnake = (startToEnd, agv, status) => {
 
 const socket = io();
 const client = mqtt.connect({ host: 'localhost', port: 8883, protocol: 'ws' });
-// client.on('connect', () => console.log('MQTT connected!'));
+client.on('connect', () => client.subscribe('test'));
 
 socket.on('complete', (topic) => {
   const agv = 'agv:' + topic.split(':')[1];
@@ -44,9 +44,9 @@ socket.on('parkNum', (message) => {
 });
 
 socket.on('subscribeMqtt', (message) => client.subscribe(message));
-
 client.on('message', function (topic, message) {
   message = JSON.parse(message);
+  console.log(topic);
   if (topic.includes('door')) {
     const door = document.getElementById(message['name']);
     if (message['status'] === 'open')
