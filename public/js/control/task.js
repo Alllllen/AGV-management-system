@@ -66,7 +66,7 @@ export const section = (Floors, state) => {
             a.setAttribute('href', '#');
             a.id = section._id;
             a.innerHTML = section.name;
-            a.addEventListener('click', async () => {
+            a.addEventListener('click', () => {
               const btnSection = document.querySelector(sectionBtn);
               btnSection.innerHTML = a.innerHTML;
               btnSection.id = a.id;
@@ -97,5 +97,62 @@ export const createTask = async (startSection, endSection) => {
     }
   } catch (err) {
     showAlert('Input not complete');
+  }
+};
+
+export const getTask = async (rangeBy, filterBy, filterWord, page) => {
+  let taskAll = await axios({
+    method: 'GET',
+    url: `/api/v1/task`,
+  });
+  let tasks = await axios({
+    method: 'GET',
+    url: `/api/v1/task?${filterBy}=${filterWord}&sort=${rangeBy}&limit=10&page=${page}`,
+  });
+  taskAll = taskAll.data.data.data;
+  tasks = tasks.data.data.data;
+  const tbl = document.querySelector('.taskHistorytable');
+
+  tbl.innerHTML = '';
+  for (let i = 0; i < tasks.length; i++) {
+    let tr = document.createElement('tr');
+    let td = document.createElement('td');
+    td.innerHTML = i;
+    tr.appendChild(td.cloneNode(true));
+
+    td.innerHTML = tasks[i].user.email;
+    tr.appendChild(td.cloneNode(true));
+
+    td.innerHTML = tasks[i].sectionStart.name;
+    tr.appendChild(td.cloneNode(true));
+
+    td.innerHTML = tasks[i].sectionEnd.name;
+    tr.appendChild(td.cloneNode(true));
+
+    td.innerHTML = tasks[i].createdAt;
+    tr.appendChild(td.cloneNode(true));
+
+    td.innerHTML = tasks[i].status;
+    tr.appendChild(td.cloneNode(true));
+
+    tbl.appendChild(tr);
+  }
+
+  const taskPagination = document.querySelector('.taskPagination');
+  taskPagination.innerHTML = '';
+  let num = Math.ceil(taskAll.length / 10);
+
+  for (let i = 1; i <= num; i++) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    li.classList.add('page-item', 'page-link');
+    a.id = 'paginationBtn' + i;
+    a.innerHTML = i;
+
+    a.addEventListener('click', () =>
+      getTask(rangeBy, filterBy, filterWord, Number(a.innerHTML))
+    );
+    li.appendChild(a);
+    taskPagination.appendChild(li);
   }
 };

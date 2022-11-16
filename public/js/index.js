@@ -1,16 +1,14 @@
 /* eslint-disable */
 import '@babel/polyfill';
-import axios from 'axios';
 
 import { login, logout, regist } from './control/auth';
-import { section, createTask } from './control/task';
+import { section, createTask, getTask } from './control/task';
 
-// DOM ELEMENTS
+// Auth
 const registForm = document.querySelector('.registerForm');
 const loginForm = document.querySelector('.loginForm');
 const logOutBtn = document.querySelector('.logout');
 
-// Auth
 if (loginForm)
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -22,9 +20,10 @@ if (loginForm)
 if (registForm)
   registForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const name = document.getElementById('userName').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    regist(email, password);
+    regist(name, email, password);
   });
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
@@ -40,20 +39,33 @@ section(startFloors, 'start');
 section(endFloors, 'end');
 
 //select which type of task is it
-Array.prototype.forEach.call(typeOfTasks, (element) => {
-  element.addEventListener('click', async () => {
-    const btn = document.querySelector('.typeOfTaskBtn');
-    btn.innerHTML = element.innerHTML;
+if (typeOfTasks)
+  Array.prototype.forEach.call(typeOfTasks, (element) => {
+    element.addEventListener('click', async () => {
+      const btn = document.querySelector('.typeOfTaskBtn');
+      btn.innerHTML = element.innerHTML;
+    });
   });
-});
 
 // when click submit button
-taskBtn.addEventListener('click', async () => {
-  const startSection = document.querySelector('.startSectionBtn').id;
-  const endSection = document.querySelector('.endSectionBtn').id;
-  const typeOfTask = document.querySelector('.typeOfTaskBtn').innerHTML;
+if (taskBtn)
+  taskBtn.addEventListener('click', async () => {
+    const startSection = document.querySelector('.startSectionBtn').id;
+    const endSection = document.querySelector('.endSectionBtn').id;
+    const typeOfTask = document.querySelector('.typeOfTaskBtn').innerHTML;
 
-  createTask(startSection, endSection);
-});
+    createTask(startSection, endSection);
+  });
 
-//socket.io
+//task hirtory
+const taskRange = document.querySelector('.taskRangeSelect');
+const taskFilter = document.querySelector('.taskFilterSelect');
+const taskFilterWord = document.querySelector('.taskFilterWord');
+const taskSearchBtn = document.querySelector('.taskSearchBtn');
+
+if (taskSearchBtn)
+  taskSearchBtn.addEventListener('click', async () => {
+    const rangeBy = taskRange.options[taskRange.selectedIndex].innerHTML;
+    const FilterBy = taskFilter.options[taskFilter.selectedIndex].innerHTML;
+    getTask(rangeBy, FilterBy, taskFilterWord, 0);
+  });

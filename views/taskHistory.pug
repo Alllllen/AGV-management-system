@@ -1,0 +1,61 @@
+extends base
+
+block content
+ // Content Start
+ .content-start.transition
+  .container-fluid.dashboard
+    .content-header
+      h1 Task Record
+      p
+
+    
+    .row
+      .col-md-5
+        .card
+          .card-body(style="background-color:rgba(0, 0, 0, 0.001) ")
+            select.taskRangeSelect.form-select(aria-label='Default select example')
+              option(selected='') Range by
+              option(value='1') createdAt
+              option(value='2') -createdAt
+      .col-md-3
+        .card
+          .card-body(style="background-color:rgba(0, 0, 0, 0.001) ")
+            select.taskFilterSelect.form-select(aria-label='Default select example')
+              option(selected='') Filter by
+              //- option(value='1') email
+              option(value='2') status
+      .col-md-2
+        .card
+          .card-body(style="background-color:rgba(0, 0, 0, 0.001) ")
+            input.taskFilterWord.form-control(placeholder='Filt Word')
+      .col-md-2
+        .card
+          .card-body(style="background-color:rgba(0, 0, 0, 0.001) ")
+            button.taskSearchBtn.btn.btn-info.btn-block Search
+            
+      .col-md-10.mx-auto
+        .card
+          .card-body
+
+            table.table
+              thead
+                tr
+                  th(scope='col') #
+                  th(scope='col') Editor
+                  th(scope='col') From
+                  th(scope='col') To
+                  th(scope='col') createdAt 
+                  th(scope='col') Status
+              tbody.taskHistorytable
+                //- tr
+                //-   th(scope='row') 3
+                //-   td Larry
+                //-   td the Bird
+                //-   td @twitter
+
+            nav(aria-label='Page navigation example')
+              ul.taskPagination.pagination
+                //- li.page-item
+                //-   a.page-link(href='#') 1
+
+

@@ -9,10 +9,53 @@ block content
       p
 
     .row
-      .col-md-6
+      .col-md-12.col-lg-6
         .card
           .card-header
-            h4 AGV-STATUS
+           h4 Fleet Status 
+          .card-body
+            .row
+              .col-md-6.col-lg-6
+                .card
+                  .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
+                    .row
+                      .col-4.d-flex.align-items-center
+                        i.fas.fa-running.icon-home.bg-info.text-light
+                      .col-8
+                        p Transport
+                        h5 50
+              .col-md-6.col-lg-6
+                .card
+                  .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
+                    .row
+                      .col-4.d-flex.align-items-center
+                        i.fas.fa-gas-pump.icon-home.bg-warning.text-light
+                      .col-8
+                        p Charge
+                        h5 30
+              .col-md-6.col-lg-6
+                .card
+                  .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
+                    .row
+                      .col-4.d-flex.align-items-center
+                        i.fas.fa-warning.icon-home.bg-danger.text-light
+                      .col-8
+                        p Malfuncation
+                        h5 30
+              .col-md-6.col-lg-6
+                .card
+                  .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
+                    .row
+                      .col-4.d-flex.align-items-center
+                        i.fas.fa-square-parking.icon-home.bg-success.text-light
+                      .col-8
+                        p Park + Back
+                        h5 60
+    
+      .col-md-12.col-lg-6
+        .card
+          .card-header
+            h4 Order Status 
           .card-body
             .mt-4
               #progress1
@@ -20,9 +63,55 @@ block content
               #progress2
             .mt-4
               #progress3
-            .mt-4
-              #progress4
+
+      .col-md-12
+        .card
+          .card-header
+            h4 Fleet Live
+          .card-body-map
+            #game-board
+
       .col-md-6
+        .card
+          .card-header
+          .card-body
+            #columnchart
+      .col-md-6
+        .card
+          .card-header
+            h4 Recent Messages
+          .card-body.pb-4
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/4.jpg')
+              .name.ms-4
+                h5.mb-1 Hank Schrader
+                h6.text-muted.mb-0 @johnducky
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/5.jpg')
+              .name.ms-4
+                h5.mb-1 Dean Winchester
+                h6.text-muted.mb-0 @imdean
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/1.jpg')
+              .name.ms-4
+                h5.mb-1 John Doe
+                h6.text-muted.mb-0 @Doejohn
+            .px-4
+              button.btn.btn-block.btn-xl.btn-primary.font-bold.mt-3
+                | Start
+                | Conversation
+     
+      //- .col-md-4
+      //-   .card
+      //-     .card-header
+      //-       h4 Bar Chart
+      //-     .card-body
+      //-       #bar
+
+      //- .col-md-6
         .card
           .card-header
             h4 Latest Transaction
@@ -79,79 +168,3 @@ block content
                     td Visa
                     td
                       button.btn.btn-primary View Details
-           
-      .col-md-12
-        .card
-          .card-header
-            h4 AGV-LIVE
-          .card-body-map
-            #game-board
-
-      .col-md-6.col-lg-3
-        .card
-          .card-body
-            .row
-              .col-4.d-flex.align-items-center
-                i.fas.fa-inbox.icon-home.bg-primary.text-light
-              .col-8
-                p Revenue
-                h5 $65
-      .col-md-6.col-lg-3
-        .card
-          .card-body
-            .row
-              .col-4.d-flex.align-items-center
-                i.fas.fa-clipboard-list.icon-home.bg-success.text-light
-              .col-8
-                p Orders
-                h5 3000
-      .col-md-6.col-lg-3
-        .card
-          .card-body
-            .row
-              .col-4.d-flex.align-items-center
-                i.fas.fa-chart-bar.icon-home.bg-info.text-light
-              .col-8
-                p Sales
-                h5 5500
-      .col-md-6.col-lg-3
-        .card
-          .card-body
-            .row
-              .col-4.d-flex.align-items-center
-                i.fas.fa-id-card.icon-home.bg-warning.text-light
-              .col-8
-                p Employes
-                h5 256
-      .col-md-6
-        .card
-          .card-header
-          .card-body
-            #columnchart
-      .col-md-6
-        .card
-          .card-header
-            h4 Recent Messages
-          .card-body.pb-4
-            .recent-message.d-flex.px-4.py-3
-              .avatar.avatar-lg
-                img(src='/assets/images/message/4.jpg')
-              .name.ms-4
-                h5.mb-1 Hank Schrader
-                h6.text-muted.mb-0 @johnducky
-            .recent-message.d-flex.px-4.py-3
-              .avatar.avatar-lg
-                img(src='/assets/images/message/5.jpg')
-              .name.ms-4
-                h5.mb-1 Dean Winchester
-                h6.text-muted.mb-0 @imdean
-            .recent-message.d-flex.px-4.py-3
-              .avatar.avatar-lg
-                img(src='/assets/images/message/1.jpg')
-              .name.ms-4
-                h5.mb-1 John Doe
-                h6.text-muted.mb-0 @Doejohn
-            .px-4
-              button.btn.btn-block.btn-xl.btn-primary.font-bold.mt-3
-                | Start
-                | Conversation
