@@ -1,0 +1,170 @@
+extends base
+
+block content
+ // Content Start
+ .content-start.transition
+  .container-fluid.dashboard
+    .content-header
+      h1 Dashboard
+      p
+
+    .row
+      .col-md-12.col-lg-6
+        .card
+          .card-header
+           h4 Fleet Status 
+          .card-body
+            .row
+              .col-md-6.col-lg-6
+                .card
+                  .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
+                    .row
+                      .col-4.d-flex.align-items-center
+                        i.fas.fa-running.icon-home.bg-info.text-light
+                      .col-8
+                        p Transport
+                        h5 50
+              .col-md-6.col-lg-6
+                .card
+                  .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
+                    .row
+                      .col-4.d-flex.align-items-center
+                        i.fas.fa-gas-pump.icon-home.bg-warning.text-light
+                      .col-8
+                        p Charge
+                        h5 30
+              .col-md-6.col-lg-6
+                .card
+                  .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
+                    .row
+                      .col-4.d-flex.align-items-center
+                        i.fas.fa-warning.icon-home.bg-danger.text-light
+                      .col-8
+                        p Malfuncation
+                        h5 30
+              .col-md-6.col-lg-6
+                .card
+                  .card-body(style='background-color:#f0f2f2; border-radius: 10px;')
+                    .row
+                      .col-4.d-flex.align-items-center
+                        i.fas.fa-square-parking.icon-home.bg-success.text-light
+                      .col-8
+                        p Park + Back
+                        h5 60
+    
+      .col-md-12.col-lg-6
+        .card
+          .card-header
+            h4 Order Status 
+          .card-body
+            .mt-4
+              #progress1
+            .mt-4
+              #progress2
+            .mt-4
+              #progress3
+
+      .col-md-12
+        .card
+          .card-header
+            h4 Fleet Live
+          .card-body-map
+            #game-board
+
+      .col-md-6
+        .card
+          .card-header
+          .card-body
+            #columnchart
+      .col-md-6
+        .card
+          .card-header
+            h4 Recent Messages
+          .card-body.pb-4
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/4.jpg')
+              .name.ms-4
+                h5.mb-1 Hank Schrader
+                h6.text-muted.mb-0 @johnducky
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/5.jpg')
+              .name.ms-4
+                h5.mb-1 Dean Winchester
+                h6.text-muted.mb-0 @imdean
+            .recent-message.d-flex.px-4.py-3
+              .avatar.avatar-lg
+                img(src='/assets/images/message/1.jpg')
+              .name.ms-4
+                h5.mb-1 John Doe
+                h6.text-muted.mb-0 @Doejohn
+            .px-4
+              button.btn.btn-block.btn-xl.btn-primary.font-bold.mt-3
+                | Start
+                | Conversation
+     
+      //- .col-md-4
+      //-   .card
+      //-     .card-header
+      //-       h4 Bar Chart
+      //-     .card-body
+      //-       #bar
+
+      //- .col-md-6
+        .card
+          .card-header
+            h4 Latest Transaction
+          .card-body
+            .table-responsive
+              table.table.table-striped
+                thead
+                  tr
+                    th(scope='col') Order Id
+                    th(scope='col') Billing Name
+                    th(scope='col') Date
+                    th(scope='col') Total
+                    th(scope='col') Payment Status
+                    th(scope='col') Payment Method
+                    th(scope='col') View Details
+                tbody
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-success Paid
+                    td Mastercard
+                    td
+                      button.btn.btn-primary View Details
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-danger Chargeback
+                    td Paypal
+                    td
+                      button.btn.btn-primary View Details
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-danger Chargeback
+                    td Paypal
+                    td
+                      button.btn.btn-primary View Details                      
+                  tr
+                    th(scope='row') #SK2548 
+                    td Neal Matthews
+                    td 07 Oct, 2022
+                    td $400
+                    td
+                      span.text-warning Refund
+                    td Visa
+                    td
+                      button.btn.btn-primary View Details
