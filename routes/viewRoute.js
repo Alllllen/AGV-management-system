@@ -18,6 +18,8 @@ router.get('/createTask', (req, res) => {
 router.get('/taskHistory', (req, res) => {
   res.status(200).render('taskHistory', { title: 'taskHistory' });
 });
-// router.get('/createTask', viewConroller.getCreateTaskInfo);
+router.get('/assignmentHistory', (req, res) => {
+  res.status(200).render('assignmentHistory', { title: 'assignmentHistory' });
+});
 
 module.exports = router;

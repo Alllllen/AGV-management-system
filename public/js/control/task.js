@@ -103,7 +103,7 @@ export const createTask = async (startSection, endSection) => {
 export const getTask = async (rangeBy, filterBy, filterWord, page) => {
   let taskAll = await axios({
     method: 'GET',
-    url: `/api/v1/task`,
+    url: `/api/v1/task?${filterBy}=${filterWord}&sort=${rangeBy}`,
   });
   let tasks = await axios({
     method: 'GET',
@@ -117,10 +117,14 @@ export const getTask = async (rangeBy, filterBy, filterWord, page) => {
   for (let i = 0; i < tasks.length; i++) {
     let tr = document.createElement('tr');
     let td = document.createElement('td');
+
     td.innerHTML = i;
     tr.appendChild(td.cloneNode(true));
 
-    td.innerHTML = tasks[i].user.email;
+    td.innerHTML = tasks[i].user._id;
+    tr.appendChild(td.cloneNode(true));
+
+    td.innerHTML = tasks[i].user.name;
     tr.appendChild(td.cloneNode(true));
 
     td.innerHTML = tasks[i].sectionStart.name;
@@ -129,7 +133,7 @@ export const getTask = async (rangeBy, filterBy, filterWord, page) => {
     td.innerHTML = tasks[i].sectionEnd.name;
     tr.appendChild(td.cloneNode(true));
 
-    td.innerHTML = tasks[i].createdAt;
+    td.innerHTML = new Date(tasks[i].createdAt).toLocaleString();
     tr.appendChild(td.cloneNode(true));
 
     td.innerHTML = tasks[i].status;

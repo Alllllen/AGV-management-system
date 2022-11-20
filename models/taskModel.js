@@ -30,7 +30,7 @@ taskSchema.pre(/^find/, function (next) {
 
   this.populate({
     path: 'user',
-    select: 'email',
+    select: 'email name',
   });
   next();
 });

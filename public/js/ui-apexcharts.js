@@ -518,12 +518,12 @@ var radialGradient_ = new ApexCharts(
 );
 var area = new ApexCharts(document.querySelector('#area'), areaOptions);
 
-area.render();
-radialGradient.render();
-radialGradient_.render();
-candle.render();
-bar.render();
-line.render();
+if (area) area.render();
+if (radialGradient) radialGradient.render();
+if (radialGradient_) radialGradient_.render();
+if (candle) candle.render();
+if (bar) bar.render();
+if (line) line.render();
 
 window.Apex = {
   chart: {
@@ -857,7 +857,7 @@ var chartLine = new ApexCharts(
   document.querySelector('#linechart'),
   optionsLine
 );
-chartLine.render();
+if (chartLine) chartLine.render();
 
 var optionsCircle = {
   chart: {
@@ -913,7 +913,7 @@ var chartCircle = new ApexCharts(
   document.querySelector('#circlechart'),
   optionsCircle
 );
-chartCircle.render();
+if (chartCircle) chartCircle.render();
 // agv status chart
 // idle
 let optionsProgress1 = {
@@ -975,7 +975,7 @@ let chartProgress1 = new ApexCharts(
   document.querySelector('#progress1'),
   optionsProgress1
 );
-chartProgress1.render();
+if (chartProgress1) chartProgress1.render();
 // charging
 let optionsProgress2 = {
   chart: {
@@ -1041,7 +1041,7 @@ let chartProgress2 = new ApexCharts(
   document.querySelector('#progress2'),
   optionsProgress2
 );
-chartProgress2.render();
+if (chartProgress2) chartProgress2.render();
 
 //TransPorting
 let optionsProgress3 = {
@@ -1107,7 +1107,7 @@ let chartProgress3 = new ApexCharts(
   document.querySelector('#progress3'),
   optionsProgress3
 );
-chartProgress3.render();
+if (chartProgress3) chartProgress3.render();
 
 //Malfunction
 let optionsProgress4 = {
@@ -1174,85 +1174,85 @@ let chartProgress4 = new ApexCharts(
   document.querySelector('#progress4'),
   optionsProgress4
 );
-chartProgress4.render();
+if (chartProgress4) chartProgress4.render();
 
-window.setInterval(function () {
-  iteration++;
+// window.setInterval(function () {
+//   iteration++;
 
-  chartColumn.updateSeries([
-    {
-      data: [
-        ...chartColumn.w.config.series[0].data,
-        [chartColumn.w.globals.maxX + 300000, getRandom()],
-      ],
-    },
-  ]);
+//   chartColumn.updateSeries([
+//     {
+//       data: [
+//         ...chartColumn.w.config.series[0].data,
+//         [chartColumn.w.globals.maxX + 300000, getRandom()],
+//       ],
+//     },
+//   ]);
 
-  chartLine.updateSeries([
-    {
-      data: [
-        ...chartLine.w.config.series[0].data,
-        [chartLine.w.globals.maxX + 300000, getRandom()],
-      ],
-    },
-    {
-      data: [
-        ...chartLine.w.config.series[1].data,
-        [chartLine.w.globals.maxX + 300000, getRandom()],
-      ],
-    },
-  ]);
+// chartLine.updateSeries([
+//   {
+//     data: [
+//       ...chartLine.w.config.series[0].data,
+//       [chartLine.w.globals.maxX + 300000, getRandom()],
+//     ],
+//   },
+//   {
+//     data: [
+//       ...chartLine.w.config.series[1].data,
+//       [chartLine.w.globals.maxX + 300000, getRandom()],
+//     ],
+//   },
+// ]);
 
-  chartCircle.updateSeries([
-    getRangeRandom({ min: 10, max: 100 }),
-    getRangeRandom({ min: 10, max: 100 }),
-  ]);
+// chartCircle.updateSeries([
+//   getRangeRandom({ min: 10, max: 100 }),
+//   getRangeRandom({ min: 10, max: 100 }),
+// ]);
 
-  let p1Data = getRangeRandom({ min: 10, max: 100 });
-  chartProgress1.updateOptions({
-    series: [
-      {
-        data: [p1Data],
-      },
-    ],
-    subtitle: {
-      text: p1Data + '(' + p1Data + '%)',
-    },
-  });
+// let p1Data = getRangeRandom({ min: 10, max: 100 });
+// chartProgress1.updateOptions({
+//   series: [
+//     {
+//       data: [p1Data],
+//     },
+//   ],
+//   subtitle: {
+//     text: p1Data + '(' + p1Data + '%)',
+//   },
+// });
 
-  let p2Data = getRangeRandom({ min: 10, max: 100 });
-  chartProgress2.updateOptions({
-    series: [
-      {
-        data: [p2Data],
-      },
-    ],
-    subtitle: {
-      text: p2Data + '(' + p2Data + '%)',
-    },
-  });
+// let p2Data = getRangeRandom({ min: 10, max: 100 });
+// chartProgress2.updateOptions({
+//   series: [
+//     {
+//       data: [p2Data],
+//     },
+//   ],
+//   subtitle: {
+//     text: p2Data + '(' + p2Data + '%)',
+//   },
+// });
 
-  let p3Data = getRangeRandom({ min: 10, max: 100 });
-  chartProgress3.updateOptions({
-    series: [
-      {
-        data: [p3Data],
-      },
-    ],
-    subtitle: {
-      text: p3Data + '(' + p3Data + '%)',
-    },
-  });
+// let p3Data = getRangeRandom({ min: 10, max: 100 });
+// chartProgress3.updateOptions({
+//   series: [
+//     {
+//       data: [p3Data],
+//     },
+//   ],
+//   subtitle: {
+//     text: p3Data + '(' + p3Data + '%)',
+//   },
+// });
 
-  let p4Data = getRangeRandom({ min: 10, max: 100 });
-  chartProgress4.updateOptions({
-    series: [
-      {
-        data: [p4Data],
-      },
-    ],
-    subtitle: {
-      text: p4Data + '(' + p4Data + '%)',
-    },
-  });
-}, 3000);
+// let p4Data = getRangeRandom({ min: 10, max: 100 });
+// chartProgress4.updateOptions({
+//   series: [
+//     {
+//       data: [p4Data],
+//     },
+//   ],
+//   subtitle: {
+//     text: p4Data + '(' + p4Data + '%)',
+//   },
+// });
+// }, 3000);

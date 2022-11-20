@@ -3,6 +3,7 @@ import '@babel/polyfill';
 
 import { login, logout, regist } from './control/auth';
 import { section, createTask, getTask } from './control/task';
+import { getAssignment } from './control/assignment';
 
 // Auth
 const registForm = document.querySelector('.registerForm');
@@ -68,4 +69,26 @@ if (taskSearchBtn)
     const rangeBy = taskRange.options[taskRange.selectedIndex].innerHTML;
     const FilterBy = taskFilter.options[taskFilter.selectedIndex].innerHTML;
     getTask(rangeBy, FilterBy, taskFilterWord, 0);
+  });
+
+// assignment History
+const assignmentRange = document.querySelector('.assignmentRangeSelect');
+const assignmentFilter = document.querySelector('.assignmentFilterSelect');
+const assignmentFilterWord = document.querySelector('.assignmentFilterWord');
+const assignmentTaskWord = document.querySelector('.assignmentTaskWord');
+const assignmentSearchBtn = document.querySelector('.assignmentSearchBtn');
+
+if (assignmentSearchBtn)
+  assignmentSearchBtn.addEventListener('click', async () => {
+    const rangeBy =
+      assignmentRange.options[assignmentRange.selectedIndex].innerHTML;
+    const FilterBy =
+      assignmentFilter.options[assignmentFilter.selectedIndex].innerHTML;
+    getAssignment(
+      rangeBy,
+      FilterBy,
+      assignmentFilterWord.value,
+      assignmentTaskWord.value,
+      0
+    );
   });
