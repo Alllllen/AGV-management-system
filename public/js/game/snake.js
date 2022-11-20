@@ -36,11 +36,11 @@ socket.on('complete', (topic) => {
 });
 socket.on('parkNum', (message) => {
   message = JSON.parse(message);
-
-  for (let park in message) {
-    const parkElement = document.getElementById(park);
-    parkElement.innerHTML = park + ': ' + message[park];
-  }
+  if (document.getElementById(message[0]))
+    for (let park in message) {
+      const parkElement = document.getElementById(park);
+      parkElement.innerHTML = park + ': ' + message[park];
+    }
 });
 
 socket.on('subscribeMqtt', (message) => client.subscribe(message));
@@ -75,12 +75,14 @@ client.on('message', function (topic, message) {
 socket.on('agv:status', (message) => {
   message = JSON.parse(message);
   console.log(message);
-  let agvStatusElement = document.getElementById('agvStatusPark');
-  agvStatusElement.innerHTML = message[0];
-  agvStatusElement = document.getElementById('agvStatusTransport');
-  agvStatusElement.innerHTML = message[1];
-  agvStatusElement = document.getElementById('agvStatusCharge');
-  agvStatusElement.innerHTML = message[2];
+  if (document.getElementById('agvStatusPark')) {
+    let agvStatusElement = document.getElementById('agvStatusPark');
+    agvStatusElement.innerHTML = message[0];
+    agvStatusElement = document.getElementById('agvStatusTransport');
+    agvStatusElement.innerHTML = message[1];
+    agvStatusElement = document.getElementById('agvStatusCharge');
+    agvStatusElement.innerHTML = message[2];
+  }
 });
 
 // export const SNAKE_SPEED = 100;

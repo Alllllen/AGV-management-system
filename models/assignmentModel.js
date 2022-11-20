@@ -15,7 +15,7 @@ const assignmentSchema = new Schema({
   agv: { type: Schema.Types.ObjectId, ref: 'Agvs', required: true },
   route: [{ type: String }],
   z: { type: Number, required: true },
-  CreatedAt: { type: Date, required: true, default: Date.now() },
+  createdAt: { type: Date, required: true, default: Date.now() },
   status: {
     type: String,
     required: true,

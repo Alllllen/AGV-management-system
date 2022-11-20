@@ -57,12 +57,17 @@ block content
           .card-header
             h4 Order Status 
           .card-body
-            .mt-4
-              #progress1
-            .mt-4
-              #progress2
-            .mt-4
-              #progress3
+            h5 Processing        
+            .progress(style="height: 20px;")
+              .progress-bar.w-75.bg-info(role="progressbar") 75%
+            .mt-5
+              h5 Completed         
+              .progress(style="height: 20px;")
+                .progress-bar.w-50.bg-success(role="progressbar") 50%            
+            .mt-5
+              h5 Not Process Yet   
+              .progress(style="height: 20px;")
+                .progress-bar.w-25(role="progressbar") 25%
 
       .col-md-12
         .card
@@ -83,19 +88,19 @@ block content
           .card-body.pb-4
             .recent-message.d-flex.px-4.py-3
               .avatar.avatar-lg
-                img(src='/assets/images/message/4.jpg')
+                img(src='/images/message/4.jpg')
               .name.ms-4
                 h5.mb-1 Hank Schrader
                 h6.text-muted.mb-0 @johnducky
             .recent-message.d-flex.px-4.py-3
               .avatar.avatar-lg
-                img(src='/assets/images/message/5.jpg')
+                img(src='/images/message/5.jpg')
               .name.ms-4
                 h5.mb-1 Dean Winchester
                 h6.text-muted.mb-0 @imdean
             .recent-message.d-flex.px-4.py-3
               .avatar.avatar-lg
-                img(src='/assets/images/message/1.jpg')
+                img(src='/images/message/1.jpg')
               .name.ms-4
                 h5.mb-1 John Doe
                 h6.text-muted.mb-0 @Doejohn
