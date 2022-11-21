@@ -73,7 +73,13 @@ block content
         .card
           .card-header
             h4 Fleet Live
-          .card-body-map
+            .dropdown
+              button#dropdownMenuButton.startFloorBtn.btn.btn-primary.dropdown-toggle.me-1(type='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                | Floor 1
+              .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                a.startFloor.dropdown-item(href='#') Floor 1
+                a.startFloor.dropdown-item(href='#') Floor 2              
+          .card-body-map        
             #game-board
 
       .col-md-6

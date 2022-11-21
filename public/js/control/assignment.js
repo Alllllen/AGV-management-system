@@ -8,6 +8,14 @@ export const getAssignment = async (
   taskId,
   page
 ) => {
+  if (filterBy === 'agv') {
+    filterWord = await axios({
+      method: 'GET',
+      url: `/api/v1/agv?name=${filterWord}`,
+    });
+    filterWord = filterWord.data.data.data[0]._id;
+  }
+
   let ifTask = 'notask';
   if (taskId) ifTask = 'task';
 
@@ -42,7 +50,7 @@ export const getAssignment = async (
     td.innerHTML = assignments[i].routeEnd;
     tr.appendChild(td.cloneNode(true));
 
-    td.innerHTML = assignments[i].agv;
+    td.innerHTML = assignments[i].agv.name;
     tr.appendChild(td.cloneNode(true));
 
     td.innerHTML = new Date(assignments[i].createdAt).toLocaleString();

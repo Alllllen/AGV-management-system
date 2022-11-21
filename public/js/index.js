@@ -68,7 +68,7 @@ if (taskSearchBtn)
   taskSearchBtn.addEventListener('click', async () => {
     const rangeBy = taskRange.options[taskRange.selectedIndex].innerHTML;
     const FilterBy = taskFilter.options[taskFilter.selectedIndex].innerHTML;
-    getTask(rangeBy, FilterBy, taskFilterWord, 0);
+    getTask(rangeBy, FilterBy, taskFilterWord.value, 0);
   });
 
 // assignment History

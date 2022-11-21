@@ -24,5 +24,13 @@ const assignmentSchema = new Schema({
   },
 });
 
+assignmentSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'agv',
+    select: 'name',
+  });
+  next();
+});
+
 const Assignment = model('Assignments', assignmentSchema);
 module.exports = Assignment;

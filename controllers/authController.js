@@ -1,7 +1,7 @@
 const User = require('./../models/userModel');
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
-// const crud = require('./crudAction');
+const crud = require('./crudAction');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
@@ -70,6 +70,7 @@ exports.getMe = catchAsync(async (req, res, next) => {
   const me = await User.findById(req.params.id);
   res.status(200).json({ status: 'success', data: me });
 });
+exports.getAllUser = crud.getAll(User);
 
 // exports.getUser = crud.getOne(User);
 // exports.updateUser = crud.updateOne(User);

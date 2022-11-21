@@ -101,10 +101,19 @@ export const createTask = async (startSection, endSection) => {
 };
 
 export const getTask = async (rangeBy, filterBy, filterWord, page) => {
+  if (filterBy === 'user') {
+    filterWord = await axios({
+      method: 'GET',
+      url: `/api/v1/user?name=${filterWord}`,
+    });
+    filterWord = filterWord.data.data.data[0]._id;
+  }
+
   let taskAll = await axios({
     method: 'GET',
     url: `/api/v1/task?${filterBy}=${filterWord}&sort=${rangeBy}`,
   });
+
   let tasks = await axios({
     method: 'GET',
     url: `/api/v1/task?${filterBy}=${filterWord}&sort=${rangeBy}&limit=10&page=${page}`,
