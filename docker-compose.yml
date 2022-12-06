@@ -1,5 +1,22 @@
 version: '3.8'
 services:
+  # web:
+  #   build: ./
+  #   depends_on:
+  #     - redis
+  #     - mongodb
+  #   ports:
+  #     - '8080:8080'
+  #   environment:
+  #     - PORT=8080
+  #     - REDIS_DOCKER=true
+  #     - JWT_EXPIRE_IN=90d
+  #     - JWT_SECRET=dvempovmpaepjbas3eoj22494j2js
+  #     - JWT_COOKIE_EXPIRES_IN=3600
+  #     - DATABASE=mongodb://root:password@mongodb:27017/agv?authSource=admin
+  #     - DATABASE_PASSWORD=abc3315431
+  #   networks:
+  #     - main
   redis:
     container_name: redis
     image: redis:alpine
@@ -8,6 +25,8 @@ services:
       - 6379:6379
     volumes:
       - /var/lib/docker/volumes/redis/_data:/data/redis
+    networks:
+      - main
 
   mongodb:
     container_name: mongodb
@@ -20,6 +39,12 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       - /var/lib/docker/volumes/mongo/_data:/data/mongo
-# docker compose up -d --no-deps --build
-
+    networks:
+      - main
+networks:
+  main:
+    external: true
+    driver: bridge
+# docker network create main
+# docker-compose up -d --no-deps --build
 # docker system prune --volumes
