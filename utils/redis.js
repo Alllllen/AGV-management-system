@@ -1,6 +1,29 @@
 const redis = require('redis');
-const client = redis.createClient(6379); // this creates a new client
-client.on('connect', () => {
+const isDocker = process.env.REDIS_DOCKER || false;
+
+let client, pub, sub;
+if (isDocker)
+  client = redis.createClient({
+    url: 'redis://redis:6379',
+    legacyMode: true,
+  });
+else client = redis.createClient(6379); // this creates a new client
+
+if (isDocker)
+  pub = redis.createClient({
+    url: 'redis://redis:6379',
+    legacyMode: true,
+  });
+else pub = redis.createClient(6379); // this creates a new client
+
+if (isDocker)
+  sub = redis.createClient({
+    url: 'redis://redis:6379',
+    legacyMode: true,
+  });
+else sub = redis.createClient(6379); // this creates a new client
+
+sub.on('connect', () => {
   console.log('Redis client connected');
 });
 
@@ -15,6 +38,8 @@ const resolvePromise = (resolve, reject) => {
 
 module.exports = {
   client,
+  pub,
+  sub,
   auth: async () => {
     await auth(client);
     await auth(sub);

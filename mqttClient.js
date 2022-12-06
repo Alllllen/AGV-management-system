@@ -3,32 +3,49 @@ const agvController = require('./controllers/agvController');
 const park = require('./models/foundations/parkModel');
 const Door = require('./models/foundations/doorModel');
 const Task = require('./models/taskModel');
-const AgvStram = require('./models/logs/agvStreamModel');
 const Assignment = require('./models/assignmentModel');
 const assignmentController = require('./controllers/assignmentController');
 const Park = require('./models/foundations/parkModel');
 const AgvStream = require('./models/logs/agvStreamModel');
 
-//redis keys -> park:num:field(name), park:enetryPosistion:field({x;1,y:2,z:4}), agv:stream, door:stream
+//redis keys -> park:num:field(name), park:enetryPosistion:field({x;1,y:2,z:4}), agv:stream, door:stream, agv:status:name
 const redis = require('./utils/redis');
 const mqtt = require('mqtt');
 const client = mqtt.connect('mqtt://localhost:1883');
 
 exports.mqttClient = (server) => {
   const io = require('socket.io')(server, { cookie: true });
-  let socketEmit = () => {};
+  // let socketEmit = () => {};
+  //when new client connet, sent current status to client and display
   io.on('connection', async (socket) => {
-    //when new client connet, sent current status to client and display
+    //park number on map
     const parkNum = await redis.hgetall('park:num');
     socket.emit('parkNum', JSON.stringify(parkNum));
+    // fleet status
+    const agvPark = await redis.get('agv:status:park');
+    const agvTransport = await redis.get('agv:status:transport');
+    const agvCharge = await redis.get('agv:status:charge');
+    socket.emit(
+      'agv:status',
+      JSON.stringify([agvPark, agvTransport, agvCharge])
+    );
+    //sent agv and door id to let client subscribe (that mqtt broker to make connection)
+    let doorInfo = await redis.get('doorInfo');
+    let agvInfo = await redis.get('agvInfo');
+    doorInfo = JSON.parse(doorInfo);
+    agvInfo = JSON.parse(agvInfo);
+    for (let agv of agvInfo)
+      socket.emit('subscribeMqtt', `agv:${agv['_id']}:route`);
+    for (let door of doorInfo)
+      socket.emit('subscribeMqtt', `door:${door['_id']}:status`);
     //when browser closed
     socket.on('disconnect', () => socket.disconnect(0));
 
-    socketEmit = async (...args) => socket.emit(...args);
+    // socketEmit = async (...args) => socket.emit(...args);
   });
 
   preload(io);
-  // testEmitAssingment(io);
+  testEmitAssingment(io);
   // testGenData();
   // testDbSpeed();
   // testFromMqtt();
@@ -60,11 +77,21 @@ exports.mqttClient = (server) => {
         // park:name:number in redis change
         const parkName = await redis.hget('park:entryPosition', entryPosition);
         await redis.hincrby('park:num', parkName, 1);
+        await redis.incr('agv:status:park');
+        await redis.decr('agv:status:transport');
+
+        const agvPark = await redis.get('agv:status:park');
+        const agvTransport = await redis.get('agv:status:transport');
+        const agvCharge = await redis.get('agv:status:charge');
+        io.emit(
+          'agv:status',
+          JSON.stringify([agvPark, agvTransport, agvCharge])
+        );
 
         // socketio park
         const parkNum = await redis.hgetall('park:num');
-        socketEmit('parkNum', JSON.stringify(parkNum));
-        socketEmit('complete', topic);
+        io.emit('parkNum', JSON.stringify(parkNum));
+        io.emit('complete', topic);
       }
       // 如果該assignment結束便要讓車子去停車 -> 生成去聽車的assignment
       if (startToEnd.split('To')[1] === 'sectionEnd') {
@@ -75,38 +102,47 @@ exports.mqttClient = (server) => {
         client.publish(agv + ':assignment', JSON.stringify([assignment]));
       }
     }
-    // redis record agv stream
-    if (topic.includes('route')) {
-      if (!redis.exists('agvNum')) redis.set('agvNum', 0);
-      const agvNum = await redis.incr('agvNum');
-      // batch moving redis data to mongodb
-      if (agvNum % 100 === 0) {
-        let toMongo = await redis.zrangebyscore('agv:stream', 0, 99);
-        await redis.zremrangebyrank('agv:stream', 0, 99);
-      }
+    // redis record agv stream (this function move to mqtt broker)
+    // if (topic.includes('route')) {
+    //   if (!redis.exists('agvNum')) redis.set('agvNum', 0);
+    //   const agvNum = await redis.incr('agvNum');
+    //   // batch moving redis data to mongodb
+    //   // if (agvNum % 100 === 0) {
+    //   //   let toMongo = await redis.zrangebyscore('agv:stream', 0, 99);
+    //   //   await redis.zremrangebyrank('agv:stream', 0, 99);
+    //   // }
 
-      const agvStream = JSON.stringify({
-        id: topic.split(':')[1],
-        data: message,
-        num: agvNum,
-      });
-      await redis.zadd('agv:stream', agvNum, agvStream);
-      // socketEmit('agvRoute', topic, message.toString());
-    }
-    // redis record sensor(door) stream
-    if (topic.includes('status')) {
-      if (!redis.exists('doorNum')) redis.set('doorNum', 0);
-      await redis.incr('doorNum');
-      const doorNum = await redis.get('doorNum');
+    //   const agvStream = JSON.stringify({
+    //     id: topic.split(':')[1],
+    //     data: message,
+    //     num: agvNum,
+    //   });
+    //   await redis.zadd('agv:stream', agvNum, agvStream);
+    //   // socketEmit('agvRoute', topic, message.toString());
+    // }
 
-      const doorStream = JSON.stringify({
-        id: topic.split(':')[1],
-        data: message,
-        num: doorNum,
-      });
-      await redis.zadd('door:stream', doorNum, doorStream);
-      // socketEmit('doorStatus', topic, message.toString());
-    }
+    // redis record sensor(door) stream (this function move to mqtt broker)
+    // if (topic.includes('status')) {
+    //   if (!redis.exists('doorNum')) redis.set('doorNum', 0);
+    //   await redis.incr('doorNum');
+    //   const doorNum = await redis.get('doorNum');
+
+    //   const doorStream = JSON.stringify({
+    //     id: topic.split(':')[1],
+    //     data: message,
+    //     num: doorNum,
+    //   });
+    //   await redis.zadd('door:stream', doorNum, doorStream);
+    //   // socketEmit('doorStatus', topic, message.toString());
+    // }
+  });
+
+  // pub/sub from redis, and bypass by websocket to client
+  redis.sub.subscribe('agv:route');
+  redis.sub.subscribe('door:status');
+  redis.sub.on('message', async (channel, message) => {
+    console.log(channel, message);
+    io.emit(channel, message);
   });
 };
 
@@ -115,6 +151,10 @@ const preload = (io) => {
   setTimeout(async () => {
     // clear redis
     await redis.client.flushall();
+    await redis.set('agv:status:park', 0);
+    await redis.set('agv:status:transport', 0);
+    await redis.set('agv:status:charge', 0);
+
     const agvs = await Agv.find({});
     const doors = await Door.find({});
     const parks = await Park.find({});
@@ -122,10 +162,14 @@ const preload = (io) => {
     client.publish('allAgvs', JSON.stringify(agvs));
     client.publish('allDoors', JSON.stringify(doors));
 
+    const agvInfo = [];
+    const doorInfo = [];
+    for (let door of doors) doorInfo.push(door);
     for (let agv of agvs) {
-      //return route, startToEnd, agvID, complete
-      io.emit('subscribeMqtt', `agv:${agv['_id']}:route`);
+      await redis.incr('agv:status:' + agv['status']);
+      agvInfo.push(agv);
 
+      //return route, startToEnd, agvID, complete
       client.subscribe(`agv:${agv['_id']}:route`);
       client.subscribe(`agv:${agv['_id']}:complete`);
 
@@ -140,6 +184,9 @@ const preload = (io) => {
         await redis.hincrby('park:num', park['name'], 1);
       else redis.hset('park:num', park['name'], 0);
     }
+
+    await redis.set('doorInfo', JSON.stringify(doorInfo));
+    await redis.set('agvInfo', JSON.stringify(agvInfo));
     for (let park of parks) {
       await redis.hset(
         `park:entryPosition`,
@@ -151,11 +198,7 @@ const preload = (io) => {
         park['name']
       );
     }
-    for (let door of doors) {
-      io.emit('subscribeMqtt', `door:${door['_id']}:status`);
-      // client.subscribe(`door:${door['_id']}:status`);
-    }
-  }, 2000);
+  }, 1000);
 };
 const testEmitAssingment = (io) => {
   // Get;
@@ -188,6 +231,16 @@ const testEmitAssingment = (io) => {
           })
         );
         await redis.hincrby('park:num', parkName, -1);
+        await redis.decr('agv:status:park');
+        await redis.incr('agv:status:transport');
+
+        const agvPark = await redis.get('agv:status:park');
+        const agvTransport = await redis.get('agv:status:transport');
+        const agvCharge = await redis.get('agv:status:charge');
+        io.emit(
+          'agv:status',
+          JSON.stringify([agvPark, agvTransport, agvCharge])
+        );
 
         // socketio park
         const parkNum = await redis.hgetall('park:num');
@@ -244,7 +297,7 @@ const testGenData = () => {
   // Generate
   setTimeout(async () => {
     await Agv.updateMany({ status: 'transport' }, { status: 'park' });
-    const tasks = await Task.aggregate([{ $limit: 10 }]);
+    const tasks = await Task.aggregate([{ $limit: 5 }]);
     const axios = require('axios');
 
     for (let i = 0; i < tasks.length; i++) {

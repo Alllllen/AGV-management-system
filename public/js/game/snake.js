@@ -27,8 +27,6 @@ const drawSnake = (startToEnd, agv, status) => {
 };
 
 const socket = io();
-const client = mqtt.connect({ host: 'localhost', port: 8883, protocol: 'ws' });
-client.on('connect', () => client.subscribe('test'));
 
 socket.on('complete', (topic) => {
   const agv = 'agv:' + topic.split(':')[1];
@@ -42,36 +40,6 @@ socket.on('parkNum', (message) => {
       parkElement.innerHTML = park + ': ' + message[park];
     }
 });
-
-socket.on('subscribeMqtt', (message) => client.subscribe(message));
-client.on('message', function (topic, message) {
-  message = JSON.parse(message);
-  // console.log(topic);
-  if (topic.includes('door')) {
-    const door = document.getElementById(message['name']);
-    if (message['status'] === 'open')
-      door.style.backgroundColor = 'transparent';
-
-    if (message['status'] === 'close') door.style.backgroundColor = '#1f1b1a';
-  }
-
-  if (topic.includes('route')) {
-    const startToEnd = message['startToEnd'];
-    const agv = 'agv:' + topic.split(':')[1];
-    const currentStep = message['currentStep'];
-    const status = message['status'];
-    const position = message['fullRoute'][currentStep];
-
-    snakeBody[0]['x'] = parseInt(position[0]) + 1;
-    snakeBody[0]['y'] = parseInt(position[1]) + 1;
-    // console.log(snakeBody[0]['x'], snakeBody[0]['y']);
-
-    clearSnake(agv);
-
-    drawSnake(startToEnd, agv, status);
-  }
-});
-
 socket.on('agv:status', (message) => {
   message = JSON.parse(message);
   console.log(message);
@@ -84,6 +52,66 @@ socket.on('agv:status', (message) => {
     agvStatusElement.innerHTML = message[2];
   }
 });
+socket.on('agv:route', (message) => {
+  message = JSON.parse(message);
+  console.log(message['data']);
+
+  const startToEnd = message['data']['startToEnd'];
+  const agv = 'agv:' + message['id'];
+  const currentStep = message['data']['currentStep'];
+  const status = message['data']['status'];
+  const position = message['data']['fullRoute'][currentStep];
+
+  snakeBody[0]['x'] = parseInt(position[0]) + 1;
+  snakeBody[0]['y'] = parseInt(position[1]) + 1;
+  // console.log(snakeBody[0]['x'], snakeBody[0]['y']);
+
+  clearSnake(agv);
+
+  drawSnake(startToEnd, agv, status);
+});
+socket.on('door:status', (message) => {
+  message = JSON.parse(message);
+  console.log(message['data']);
+
+  const door = document.getElementById(message['data']['name']);
+  if (message['status'] === 'open') door.style.backgroundColor = 'transparent';
+  if (message['status'] === 'close') door.style.backgroundColor = '#1f1b1a';
+});
+
+// from mqtt (現在改成server讀取redis資料在傳過來)
+// const client = mqtt.connect({ host: 'localhost', port: 8883, protocol: 'ws' });
+// client.on('connect', () => client.subscribe('test'));
+
+// socket.on('subscribeMqtt', (message) => client.subscribe(message));
+// client.on('message', function (topic, message) {
+//   message = JSON.parse(message);
+//   // console.log(topic);
+
+//   if (topic.includes('door')) {
+//     const door = document.getElementById(message['name']);
+//     if (message['status'] === 'open')
+//       door.style.backgroundColor = 'transparent';
+
+//     if (message['status'] === 'close') door.style.backgroundColor = '#1f1b1a';
+//   }
+
+//   if (topic.includes('route')) {
+//     const startToEnd = message['startToEnd'];
+//     const agv = 'agv:' + topic.split(':')[1];
+//     const currentStep = message['currentStep'];
+//     const status = message['status'];
+//     const position = message['fullRoute'][currentStep];
+
+//     snakeBody[0]['x'] = parseInt(position[0]) + 1;
+//     snakeBody[0]['y'] = parseInt(position[1]) + 1;
+//     // console.log(snakeBody[0]['x'], snakeBody[0]['y']);
+
+//     clearSnake(agv);
+
+//     drawSnake(startToEnd, agv, status);
+//   }
+// });
 
 // export const SNAKE_SPEED = 100;
 
