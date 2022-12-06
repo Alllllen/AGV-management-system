@@ -17,10 +17,12 @@ const { mqttClient } = require('./mqttClient');
 //   });
 
 // database(local)
-const DB = 'mongodb://root:password@localhost:27017/agv?authSource=admin';
+const DB =
+  // process.env.DATABASE ||
+  'mongodb://root:password@localhost:27017/agv?authSource=admin';
 mongoose
   .connect(DB, { useNewUrlParser: true })
-  .then(() => console.log('MongoDB Atlas connected'))
+  .then(() => console.log('MongoDB local connected'))
   .catch((err) => {
     console.log(err);
   });
