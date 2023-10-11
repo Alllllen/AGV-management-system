@@ -29,7 +29,7 @@ const drawSnake = (startToEnd, agv, status) => {
 const socket = io();
 
 socket.on('complete', (topic) => {
-  const agv = 'agv:' + topic.split(':')[1];
+  const agv = 'agv:' + topic.split('/')[2];
   clearSnake(agv);
 });
 socket.on('parkNum', (message) => {
@@ -54,29 +54,41 @@ socket.on('agv:status', (message) => {
 });
 socket.on('agv:route', (message) => {
   message = JSON.parse(message);
-  console.log(message['data']);
+  const topic = message.topic;
+  const payload = message.payload;
 
-  const startToEnd = message['data']['startToEnd'];
-  const agv = 'agv:' + message['id'];
-  const currentStep = message['data']['currentStep'];
-  const status = message['data']['status'];
-  const position = message['data']['fullRoute'][currentStep];
+  const startToEnd = payload['startToEnd'];
+  const agv = 'agv:' + topic.split('/')[2];
+  const currentStep = payload['currentStep'];
+  const status = payload['status'];
+  const position = payload['fullRoute'][currentStep];
 
+  //...........................................................,.....原本的................................................................
+  // message = JSON.parse(message);
+  // console.log(message['data']);
+
+  // const startToEnd = message['data']['startToEnd'];
+  // const agv = 'agv:' + message['id'];
+  // const currentStep = message['data']['currentStep'];
+  // const status = message['data']['status'];
+  // const position = message['data']['fullRoute'][currentStep];
+
+  //......................................................................................................................................
   snakeBody[0]['x'] = parseInt(position[0]) + 1;
   snakeBody[0]['y'] = parseInt(position[1]) + 1;
   // console.log(snakeBody[0]['x'], snakeBody[0]['y']);
-
   clearSnake(agv);
-
   drawSnake(startToEnd, agv, status);
 });
 socket.on('door:status', (message) => {
   message = JSON.parse(message);
-  console.log(message['data']);
+  const topic = message.topic;
+  const payload = message.payload;
+  // console.log(payload); //這裡跑出undefined!!!!
 
-  const door = document.getElementById(message['data']['name']);
-  if (message['status'] === 'open') door.style.backgroundColor = 'transparent';
-  if (message['status'] === 'close') door.style.backgroundColor = '#1f1b1a';
+  const door = document.getElementById(payload['name']);
+  if (payload['status'] === 'open') door.style.backgroundColor = 'transparent';
+  if (payload['status'] === 'close') door.style.backgroundColor = '#1f1b1a';
 });
 
 // from mqtt (現在改成server讀取redis資料在傳過來)
